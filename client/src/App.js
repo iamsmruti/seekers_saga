@@ -3,6 +3,8 @@ import Login from './pages/Login';
 import ProtectedRoute from './components/ProtectedRoute';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
+import Puzzle from './pages/Puzzle';
+import Hunt from './pages/Hunt';
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
         <Route element={<ProtectedRoute />}>
           <Route path="/profile" element={<Profile />} />
           <Route path="/" element={<Home />} />
+          <Route path="/puzzles" element={<Puzzle />} />
+          <Route path="/hunts" element={<Hunt />} />
         </Route>
       </Routes>
     </Router>

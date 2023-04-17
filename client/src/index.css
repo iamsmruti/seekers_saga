@@ -23,3 +23,15 @@ body {
   background-size: cover;
   filter: drop-shadow(0.5);
 }
+
+.puzzle {
+  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e6a1da53-94a5-48ca-9783-82fabdc899ac/d4nngp6-84ff6ca3-ef12-44a8-b511-a085c9cbd785.jpg/v1/fill/w_600,h_676,q_75,strp/sherlock_holmes_robert_downey_jr__by_jaf_artwork_d4nngp6-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2U2YTFkYTUzLTk0YTUtNDhjYS05NzgzLTgyZmFiZGM4OTlhY1wvZDRubmdwNi04NGZmNmNhMy1lZjEyLTQ0YTgtYjUxMS1hMDg1YzljYmQ3ODUuanBnIiwiaGVpZ2h0IjoiPD02NzYiLCJ3aWR0aCI6Ijw9NjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLndhdGVybWFyayJdLCJ3bWsiOnsicGF0aCI6Ilwvd21cL2U2YTFkYTUzLTk0YTUtNDhjYS05NzgzLTgyZmFiZGM4OTlhY1wvamFmLWFydHdvcmstNC5wbmciLCJvcGFjaXR5Ijo5NSwicHJvcG9ydGlvbnMiOjAuNDUsImdyYXZpdHkiOiJjZW50ZXIifX0.DCvuQvrxcw9YQFdLn-drfDPhzSQoRNStGrK3bhKJAOo");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hunt {
+  background-image: url('https://i.pinimg.com/originals/90/4e/4f/904e4f41d6f5ef10b2883b6916c2762e.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
