@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({
 app.use(cors());
 
 app.use('/auth', authRoutes)
-app.use('/user', userRoutes)
+app.use('/user', userRoutes) 
 
 const URL = process.env.DB_URL
 const PORT = process.env.PORT || 4500

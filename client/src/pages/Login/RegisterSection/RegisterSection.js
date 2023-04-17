@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import CustomButton from "../../../components/CustomButton";
 import { API } from '../../../constants'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 const RegisterSection = ({ setModalState }) => {
   const [email, setEmail] = useState("");
@@ -25,9 +26,16 @@ const RegisterSection = ({ setModalState }) => {
         lastName: lastName,
         password: password
     }).then((res) => {
+      console.log(res)
 
+      if(res.data.error){
+          toast(res.data.error)
+      } else{ 
+          toast("Successfully Registered!")
+          setModalState('login')
+      }
     }).catch((err) => {
-        
+      toast(err.data.error) 
     })
   };
 

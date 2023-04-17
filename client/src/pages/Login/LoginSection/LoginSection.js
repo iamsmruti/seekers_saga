@@ -4,9 +4,14 @@ import CustomButton from '../../../components/CustomButton'
 import axios from 'axios'
 import { API } from '../../../constants'
 
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
+
 const LoginSection = ({setModalState}) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
+  const navigate = useNavigate()
 
   const customInput = {
     border: '1px solid #507A37',
@@ -22,9 +27,20 @@ const LoginSection = ({setModalState}) => {
         email: email,
         password: password
     }).then((res) => {
+        console.log(res)
 
+        if(res.data.error){
+            toast(res.data.error)
+        } else if (res.error) {
+            toast(res.error.message)
+        } else{ 
+            localStorage.setItem('token', res.data)
+            toast("Successfully Logged in!")
+            navigate('/')
+        }
     }).catch((err) => {
-        
+        console.log(err)
+        toast(err.message)
     })
   };
 
