@@ -11,3 +11,15 @@
 
   font-family: 'Inter', sans-serif;
 }
+
+body {
+  /* cursor: url('./assets/icons/icons8-search.svg'), auto; */
+}
+
+.login {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://images.pexels.com/photos/1203808/pexels-photo-1203808.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+  background-size: cover;
+  filter: drop-shadow(0.5);
+}
