@@ -1,0 +1,1 @@
+export const treasure_map = 'https://images.pexels.com/photos/1203808/pexels-photo-1203808.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
