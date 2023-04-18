@@ -15,12 +15,17 @@ const HuntOne = () => {
 
   return (
     <Layout>
-      {huntState === 0 && <ContinentSelection setSelected={setSelected} huntState={huntState}/>}
-      {huntState === 1 && <CountrySelection huntState={huntState}/>}
-      {huntState === 2 && <CapitalSelection huntState={huntState}/>}
-      {huntState === 3 && <CitySelection huntState={huntState}/>}
-      {huntState === 4 && <PlaceSelection huntState={huntState}/>}
-      {huntState === 5 && <FinalTreasure huntState={huntState}/>}
+      <div className='px-5 py-5'>
+        <h1 className='text-[28px] font-semibold'>Treasure Hunt - Chapter 1</h1>
+        <p>Solve the riddles to get to your treasure</p>
+      </div>
+
+      {huntState === 0 && <ContinentSelection setSelected={setSelected} setHuntState={setHuntState}/>}
+      {huntState === 1 && <CountrySelection setHuntState={setHuntState}/>}
+      {huntState === 2 && <CapitalSelection setHuntState={setHuntState}/>}
+      {huntState === 3 && <CitySelection setHuntState={setHuntState}/>}
+      {huntState === 4 && <PlaceSelection setHuntState={setHuntState}/>}
+      {huntState === 5 && <FinalTreasure setHuntState={setHuntState}/>}
     </Layout>
   )
 }

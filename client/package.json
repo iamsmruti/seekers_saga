@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@svg-maps/australia": "^1.1.1",
+    "@svg-maps/india": "^1.0.1",
     "@svg-maps/world": "^1.0.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
