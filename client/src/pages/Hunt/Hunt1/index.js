@@ -15,7 +15,7 @@ const HuntOne = () => {
 
   return (
     <Layout>
-      <div className='px-5 py-5'>
+      <div className='md:p-5 p-3'>
         <h1 className='text-[28px] font-semibold'>Treasure Hunt - Chapter 1</h1>
         <p>Solve the riddles to get to your treasure</p>
       </div>

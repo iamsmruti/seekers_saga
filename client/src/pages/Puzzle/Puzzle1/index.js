@@ -30,7 +30,7 @@ const PuzzleOne = () => {
         </div>
         
         <div className='flex justify-center mt-10'>
-            <div className='w-[1000px]'>
+            <div className='md:w-[1000px] w-[100vw]'>
                 <Slider {...settings}>
                     {puzzle1.map((item) => {
                         return (

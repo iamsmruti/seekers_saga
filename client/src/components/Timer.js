@@ -35,8 +35,8 @@ function Timer({ expiryTimestamp, times }) {
   }, [trigger])
 
   return (
-    <div className='w-[100px] h-[100px] bg-greenShade flex justify-center items-center border-4 border-deepPurpleShade rounded-full'>
-      <p className='text-[32px]'>{seconds}</p>
+    <div className='md:w-[100px] md:h-[100px] w-[70px] h-[70px] bg-greenShade flex justify-center items-center border-4 border-deepPurpleShade rounded-full'>
+      <p className='md:text-[48px] text-[32px]'>{seconds}</p>
     </div>
   );
 }

@@ -23,7 +23,7 @@ const CountrySelection = ({setSelected, setHuntState}) => {
 
   return (
     <div className='mt-2 px-5'>
-      <div className='grid grid-cols-2 gap-5 border-[0.5px] border-black p-3'>
+      <div className='grid md:grid-cols-2 grid-cols-1 gap-5 border-[0.5px] border-black p-3'>
         <div className='w-[100%]'>
           <SVGMap 
             map={World} 
@@ -41,11 +41,11 @@ const CountrySelection = ({setSelected, setHuntState}) => {
             }}
           />
 
-          <p>Your mouse is on : </p>
+          <p className='mt-2'>Your mouse is on : </p>
           <p>Country:  {selectedCountry}</p>
           <p>Continent: {selectedContinent}</p>
         </div>
-        <div className='px-10 py-2 w-[600px]'>
+        <div className='md:px-10  py-2 md:w-[600px]'>
           <p className='text-[24px] font-medium'>Fine! You got me, Now I dare you to find the Country...</p>
           <p>Find it...</p>
           <p className='text-pinkShade text-[24px] font-mono mt-20'>I am a crowded country with vivid religions and a lot of languages. I am very much known for my colourful festivals. Who am I ?</p>

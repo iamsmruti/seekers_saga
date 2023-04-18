@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 
 const RiddleCard = ({title, time, level, image, path}) => {
   return (
-    <div className='flex flex-col m-2 relative w-fit border-[1px] pb-4'>
+    <div className='flex flex-col md:m-2 m-[5px] relative w-fit border-[1px] pb-4'>
         <Link to={path}>
-          <div className='w-[450px] relative'>
+          <div className='md:w-[450px] max-w-[450px]'>
               <img className='' src={image}/>
           </div>
         </Link>

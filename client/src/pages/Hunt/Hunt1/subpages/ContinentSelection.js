@@ -21,7 +21,7 @@ const ContinentSelection = ({setSelected, setHuntState}) => {
 
   return (
     <div className='mt-2 px-5'>
-      <div className='grid grid-cols-2 gap-5 border-[0.5px] border-black p-3'>
+      <div className='grid md:grid-cols-2 grid-cols-1 gap-5 border-[0.5px] border-black p-3'>
         <div className='w-[100%]'>
           <SVGMap 
             map={World} 
@@ -39,9 +39,9 @@ const ContinentSelection = ({setSelected, setHuntState}) => {
             }}
           />
 
-          <p>Your mouse is on : {selectedContinent}</p>
+          <p className='mt-5'>Your mouse is on : {selectedContinent}</p>
         </div>
-        <div className='px-10 py-2 w-[600px]'>
+        <div className='md:px-10 px-0 py-2 md:w-[600px]'>
           <p className='text-[24px] font-medium'>Before anything to look for, you need to know the continent... Right ?</p>
           <p>Find me...</p>
           <p className='text-pinkShade text-[24px] font-mono mt-20'>I cover nearly one-third of the Earth’s
