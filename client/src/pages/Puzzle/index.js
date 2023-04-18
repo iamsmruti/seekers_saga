@@ -1,9 +1,16 @@
 import React from 'react'
 import Layout from '../../components/Layout'
+import RiddleCard from '../../components/RiddleCard'
+
+import puzzle1 from '../../assets/images/puzzle_1/puzzle1.jpg'
 
 const Puzzle = () => {
   return (
-    <Layout>Puzzle</Layout>
+    <Layout>
+      <div className='grid grid-cols-1 md:grid-cols-3 gap-6 my-10 mx-10'>
+        <RiddleCard title={"Find the odd one..."} time={"2min"} level={"intermediate"} image={puzzle1} path={"/puzzles/1"}/>
+      </div>
+    </Layout>
   )
 }
 
