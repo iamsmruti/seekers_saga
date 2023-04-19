@@ -6,6 +6,8 @@ import Users from './pages/Users';
 import Profile from './pages/Profile';
 import Puzzles from './pages/Puzzles';
 import Hunts from './pages/Hunts';
+import AddPuzzle from './pages/Puzzles/subpages/AddPuzzle';
+import AddHunt from './pages/Hunts/subpages/AddHunt';
 
 function App() {
   return (
@@ -20,7 +22,9 @@ function App() {
           <Route path='/users' element={<Users />}/>
           <Route path='/profile' element={<Profile />}/>
           <Route path='/puzzles' element={<Puzzles />}/>
+          <Route path='/add-puzzle' element={<AddPuzzle />}/>
           <Route path='/hunts' element={<Hunts />}/>
+          <Route path='/add-hunt' element={<AddHunt />}/>
         </Route>
       </Routes>
     </Router>

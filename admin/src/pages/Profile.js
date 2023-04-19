@@ -1,9 +1,12 @@
 import React from 'react'
 import Layout from '../components/Layout'
+import Heading from '../components/Heading'
 
 const Profile = () => {
   return (
-    <Layout>Profile</Layout>
+    <Layout>
+      <Heading title={"Profile"} subtitle={"Edit your profile information"}/>
+    </Layout>
   )
 }
 
