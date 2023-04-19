@@ -9,6 +9,7 @@ import { toast } from 'react-toastify'
 
 const ContinentSelection = ({setSelected, setHuntState}) => {
   const [selectedContinent, setSelectedContinent] = useState('')
+  const [hoveredContinent, setHoveredContinent] = useState('')
 
   const handleSubmit = () => {
     if(selectedContinent === 'Asia') {
@@ -26,8 +27,7 @@ const ContinentSelection = ({setSelected, setHuntState}) => {
           <SVGMap 
             map={World} 
             onLocationMouseOver={(event) => {
-              console.log(getLocationName(event))
-              setSelectedContinent(getContinentName(event))
+              setHoveredContinent(getContinentName(event))
             }}
             onChange={(event) => {
               setSelected(prevState => {
@@ -37,9 +37,12 @@ const ContinentSelection = ({setSelected, setHuntState}) => {
                 };
               });
             }}
+            onLocationClick={(event) => {
+              setSelectedContinent(getContinentName(event))
+            }}
           />
 
-          <p className='mt-5'>Your mouse is on : {selectedContinent}</p>
+          <p className='mt-5'>Your mouse is on : {hoveredContinent}</p>
         </div>
         <div className='md:px-10 px-0 py-2 md:w-[600px]'>
           <p className='text-[24px] font-medium'>Before anything to look for, you need to know the continent... Right ?</p>

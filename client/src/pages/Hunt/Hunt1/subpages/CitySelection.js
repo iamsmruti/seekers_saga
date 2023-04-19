@@ -1,8 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
+import CustomButton from '../../../../components/CustomButton'
+import DelhiMap from '../../../../assets/images/hunt_1/delhi_map.png'
 
-const CitySelection = () => {
+import { toast } from 'react-toastify'
+
+const CitySelection = ({setHuntState}) => {
+  const [city, setCity] = useState('')
+  const handleSubmit = () => {
+    if(city === 'Manali' || city === 'manali') {
+      setHuntState(4)
+      toast('Well, you reached the last step. Congo !')
+    } else {
+      toast('You have to try again')
+    }
+  }
   return (
-    <div>CitySelection</div>
+    <div className='mt-2 md:px-5 px-3'>
+      <div className='grid md:grid-cols-2 grid-cols-1 gap-5 border-[0.5px] border-black p-3'>
+        <div className='md:w-[600px] md:ml-[100px]'>
+          <img src={DelhiMap}/>
+        </div>
+        <div className='md:px-10 py-2 md:w-[600px]'>
+          <p className='text-[24px] font-medium'>OMG! You are a True Hunter I see. But this is the end to your journey.</p>
+          <p>Let's see...You will need some hints btw. </p>
+          <p className='text-pinkShade text-[24px] font-mono mt-10'>I am a town in the north, and I have a lot of valleys and mountains. My name consists of 6 Letters. Who am I ? </p>
+          <p className='mt-10 text-blue-500'><a href='https://www.instagram.com/__iamsmruti/'>https://www.instagram.com/__iamsmruti/</a></p>
+          <p className='text-pinkShade text-[24px] font-mono'>I can give you a hint. This person in the instagram account once came to my town wearing a white jacket and white shoes.</p>
+          
+          <p className='mt-[50px]'>Did you solve it ?</p>
+          <input onChange={(e) => setCity(e.target.value)} className='border-2 px-3 py-1 outline-none border-black w-[100%]' placeholder='write your answer'/>
+          <div>
+            <CustomButton onClick={handleSubmit} text={"Submit & Next"}/>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
 

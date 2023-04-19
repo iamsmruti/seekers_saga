@@ -8,8 +8,9 @@ import CustomButton from '../../../../components/CustomButton';
 import { toast } from 'react-toastify'
 
 const CountrySelection = ({setSelected, setHuntState}) => {
-  const [selectedContinent, setSelectedContinent] = useState('')
+  const [hoveredContinent, setHoveredContinent] = useState('')
   const [selectedCountry, setSelectedCountry] = useState('')
+  const [hoveredCountry, setHoveredCountry] = useState('')
 
   const handleSubmit = () => {
     if(selectedCountry === 'India') {
@@ -28,8 +29,8 @@ const CountrySelection = ({setSelected, setHuntState}) => {
           <SVGMap 
             map={World} 
             onLocationMouseOver={(event) => {
-              setSelectedCountry(getLocationName(event))
-              setSelectedContinent(getContinentName(event))
+              setHoveredCountry(getLocationName(event))
+              setHoveredContinent(getContinentName(event))
             }}
             onChange={(event) => {
               setSelected(prevState => {
@@ -39,11 +40,14 @@ const CountrySelection = ({setSelected, setHuntState}) => {
                 };
               });
             }}
+            onLocationClick={(event) => {
+              setSelectedCountry(getLocationName(event))
+            }}
           />
 
           <p className='mt-2'>Your mouse is on : </p>
-          <p>Country:  {selectedCountry}</p>
-          <p>Continent: {selectedContinent}</p>
+          <p>Country:  {hoveredCountry}</p>
+          <p>Continent: {hoveredContinent}</p>
         </div>
         <div className='md:px-10  py-2 md:w-[600px]'>
           <p className='text-[24px] font-medium'>Fine! You got me, Now I dare you to find the Country...</p>

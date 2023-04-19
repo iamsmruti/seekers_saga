@@ -9,11 +9,12 @@ import { toast } from 'react-toastify'
 
 const CapitalSelection = ({setHuntState, setSelected}) => {
   const [selectedState, setSelectedState] = useState('')
+  const [hoveredState, setHoveredState] = useState('')
 
   const handleSubmit = () => {
-    if(selectedState === 'New Delhi') {
-      setHuntState(2)
-      toast('You are Right')
+    if(selectedState === 'New Delhi' || selectedState === 'Delhi') {
+      setHuntState(3)
+      toast('You Got me !')
       toast('You are a great Hunter!')
     } else {
       toast('Wrong Answer! Try Again')
@@ -27,7 +28,7 @@ const CapitalSelection = ({setHuntState, setSelected}) => {
           <SVGMap 
             map={India} 
             onLocationMouseOver={(event) => {
-              // console.log(getLocationName(event))
+              setHoveredState(getLocationName(event))
             }}
             onChange={(event) => {
               setSelected(prevState => {
@@ -43,14 +44,14 @@ const CapitalSelection = ({setHuntState, setSelected}) => {
           />
 
           <p className='mt-3'>Your mouse is on : </p>
-          <p>State:  {selectedState}</p>
+          <p>State:  {hoveredState}</p>
         </div>
         <div className='md:px-10 py-2 md:w-[600px]'>
           <p className='text-[24px] font-medium'>You got this far ? I Bet this will be harder than you think ( or perhaps may be not .. LOL)</p>
-          <p>Let's see...</p>
+          <p>Let's see...You need to look for the smallest ( thank me later ) </p>
           <p className='text-pinkShade text-[24px] font-mono mt-20'>I am a state, and I am responsible for every decisions of the country and represents the nation at the front. Who am I ? </p>
           
-          <p className='mt-[50px]'>click on the map to select any continent</p>
+          <p className='mt-[50px]'>click on the map to select any state</p>
           <input value={selectedState} className='border-2 px-3 py-1 outline-none border-black w-[100%]' placeholder='write your answer'/>
           <div>
             <CustomButton onClick={handleSubmit} text={"Submit & Next"}/>
