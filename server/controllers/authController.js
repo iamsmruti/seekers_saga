@@ -55,3 +55,30 @@ export const loginUser = async (req, res) => {
 
     return res.status(200).json(token)
 }
+
+export const loginAdminUser = async (req, res) => {
+    // Validation
+    const { error } = loginValidation(req.body)
+    if (error) return res.json({error: error.details[0].message})
+
+    // If User with entered Email exists
+    const user = await User.findOne({ email: req.body.email })
+    if (!user) return res.status(400).json({ error: "Incorrect Email" })
+
+    // If exists , the password is checked
+    const validPass = await bcrypt.compare(req.body.password, user.password)
+    if (!validPass) return res.status(400).json({ error: "Incorrect Password" })
+
+    if(!user.roles.includes('admin')) {
+        return res.status(200).json({error: "You are not an admin"})
+    }
+
+    // JWT Token
+    const token = jwt.sign({
+        id: user._id,
+        email: user.email,
+        roles: user.roles
+    }, process.env.TOKEN_SECRET)
+
+    return res.status(200).json(token)
+}

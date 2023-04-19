@@ -12,7 +12,6 @@ export const puzzle1 = [
     {
         image: image1,
         answer: '',
-        workmap: 'workmap1'
     },
     {
         image: image2,
