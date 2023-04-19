@@ -10,7 +10,7 @@ const Login = () => {
 
   return (
     <div className='login flex justify-center items-center'>
-      <div className='bg-white p-4 md:w-[450px] w-[300px]'>
+      <div className='bg-white p-4 md:w-[450px] w-[95%]'>
 
         {/* Header Logo */}
         <div className='flex justify-center'>
