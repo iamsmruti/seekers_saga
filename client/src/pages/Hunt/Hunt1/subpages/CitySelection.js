@@ -24,7 +24,7 @@ const CitySelection = ({setHuntState}) => {
           <p className='text-[24px] font-medium'>OMG! You are a True Hunter I see. But this is the end to your journey.</p>
           <p>Let's see...You will need some hints btw. </p>
           <p className='text-pinkShade text-[24px] font-mono mt-10'>I am a town in the north, and I have a lot of valleys and mountains. My name consists of 6 Letters. Who am I ? </p>
-          <p className='mt-10 text-blue-500'><a href='https://www.instagram.com/__iamsmruti/'>https://www.instagram.com/__iamsmruti/</a></p>
+          <p className='mt-10 text-blue-500'><a href='https://www.instagram.com/__iamsmruti/' target="_blank">https://www.instagram.com/__iamsmruti/</a></p>
           <p className='text-pinkShade text-[24px] font-mono'>I can give you a hint. This person in the instagram account once came to my town wearing a white jacket and white shoes.</p>
           
           <p className='mt-[50px]'>Did you solve it ?</p>
