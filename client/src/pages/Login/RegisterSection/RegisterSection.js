@@ -21,10 +21,10 @@ const RegisterSection = ({ setModalState }) => {
 
   const handleSubmit = () => {
     axios.post(`${API}/auth/register`, {
-        email: email.toLowerCase(),
+        email: email.toLowerCase().trim(),
         firstName: firstName,
         lastName: lastName,
-        password: password.toLowerCase()
+        password: password.toLowerCase().trim()
     }).then((res) => {
       console.log(res)
 

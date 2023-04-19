@@ -24,8 +24,8 @@ const LoginSection = ({setModalState}) => {
 
   const handleSubmit = () => {
     axios.post(`${API}/auth/login`, {
-        email: email.toLowerCase(),
-        password: password.toLowerCase()
+        email: email.toLowerCase().trim(),
+        password: password.toLowerCase().trim()
     }).then((res) => {
         console.log(res)
 
