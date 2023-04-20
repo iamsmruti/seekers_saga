@@ -3,15 +3,30 @@ import CustomButton from '../../../../components/CustomButton'
 import DelhiMap from '../../../../assets/images/hunt_1/delhi_map.png'
 
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
-const CitySelection = ({setHuntState}) => {
+const CitySelection = ({setHuntState, setStats, timer}) => {
   const [city, setCity] = useState('')
+  const [attempts, setAttempts] = useState(1)
+
+  localStorage.setItem('hunt_state', 3)
+
+  const navigate = useNavigate()
+
   const handleSubmit = () => {
+    setAttempts(attempts + 1)
     if(city === 'Manali' || city === 'manali') {
       setHuntState(4)
+      setStats(current => [...current, {time: timer, attempts: attempts}])
       toast('Well, you reached the last step. Congo !')
     } else {
-      toast('You have to try again')
+      if(attempts === 1)
+        toast('Wrong Answer! You have one more attempt')
+      else if (attempts === 2){
+        toast('Wrong Answer! You have reached a dead end... Start Again.')
+        
+        navigate('/hunts')
+      }
     }
   }
   return (

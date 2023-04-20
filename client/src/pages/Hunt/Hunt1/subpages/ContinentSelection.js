@@ -1,22 +1,36 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import World from '@svg-maps/world';
 import { SVGMap } from "react-svg-map";
 import "react-svg-map/lib/index.css";
-import { getContinentName, getLocationName } from '../../../../helpers/country/utils';
+import { getContinentName } from '../../../../helpers/country/utils';
 import CustomButton from '../../../../components/CustomButton';
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom';
 
-const ContinentSelection = ({setSelected, setHuntState}) => {
+const ContinentSelection = ({setHuntState, setStats, timer}) => {
   const [selectedContinent, setSelectedContinent] = useState('')
   const [hoveredContinent, setHoveredContinent] = useState('')
+  const [attempts, setAttempts] = useState(1)
+
+  localStorage.setItem('hunt_state', 0)
+
+  const navigate = useNavigate()
 
   const handleSubmit = () => {
+    setAttempts(Number(attempts) + 1)
     if(selectedContinent === 'Asia') {
       toast('You have gone 1 step Closer')
+      setStats(current => [...current, {time: timer, attempts: attempts}])
       setHuntState(1)
     } else {
-      toast('You are not right on this one! Try Again')
+      if(attempts === 1)
+        toast('Wrong Answer! You have one more attempt')
+      else if (attempts === 2){
+        toast('Wrong Answer! You have reached a dead end... Start Again.')
+
+        navigate('/hunts')
+      }
     }
   }
 
@@ -28,14 +42,6 @@ const ContinentSelection = ({setSelected, setHuntState}) => {
             map={World} 
             onLocationMouseOver={(event) => {
               setHoveredContinent(getContinentName(event))
-            }}
-            onChange={(event) => {
-              setSelected(prevState => {
-                return {
-                  ...prevState,
-                  selectedLocations: event.map(node => node.attributes.name.value)
-                };
-              });
             }}
             onLocationClick={(event) => {
               setSelectedContinent(getContinentName(event))

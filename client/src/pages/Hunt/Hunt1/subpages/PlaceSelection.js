@@ -3,16 +3,29 @@ import CustomButton from '../../../../components/CustomButton'
 import CustomButton2 from '../../../../components/CustomButton2'
 import Manali from '../../../../assets/images/hunt_1/manali.png'
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
-const PlaceSelection = ({setHuntState}) => {
+const PlaceSelection = ({setHuntState, setStats, timer}) => {
   const [answer, setAnswer] = useState('')
+  const [attempts, setAttempts] = useState(1)
+
+  localStorage.setItem('hunt_state', 4)
+
+  const navigate = useNavigate()
 
   const handleSubmit = () => {
+    setAttempts(attempts + 1)
     if(answer === 'Under the river that is flowing beside him.') {
       setHuntState(5)
+      setStats(current => [...current, {time: timer, attempts: attempts}])
       toast('You have found the treasure!')
     } else {
-      toast('You have lost one guess!')
+      if(attempts === 1)
+        toast('Wrong Answer! You have one more attempt')
+      else if (attempts === 2){
+        toast('Wrong Answer! You have reached a dead end... Start Again.')
+        navigate('/hunts')
+      }
     }
   }
 

@@ -6,18 +6,30 @@ import "react-svg-map/lib/index.css";
 import { getLocationName } from '../../../../helpers/country/utils';
 import CustomButton from '../../../../components/CustomButton';
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom';
 
-const CapitalSelection = ({setHuntState, setSelected}) => {
+const CapitalSelection = ({setHuntState, setSelected, setStats, timer}) => {
   const [selectedState, setSelectedState] = useState('')
   const [hoveredState, setHoveredState] = useState('')
+  const [attempts, setAttempts] = useState(1)
+
+  localStorage.setItem('hunt_state', 2)
+  const navigate = useNavigate()
 
   const handleSubmit = () => {
+    setAttempts(attempts + 1)
     if(selectedState === 'New Delhi' || selectedState === 'Delhi') {
       setHuntState(3)
-      toast('You Got me !')
       toast('You are a great Hunter!')
+      setStats(current => [...current, {time: timer, attempts: attempts}])
     } else {
-      toast('Wrong Answer! Try Again')
+      if(attempts === 1)
+        toast('Wrong Answer! You have one more attempt')
+      else if (attempts === 2){
+        toast('Wrong Answer! You have reached a dead end... Start Again.')
+        
+        navigate('/hunts')
+      }
     }
   }
 

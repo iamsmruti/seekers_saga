@@ -6,19 +6,32 @@ import "react-svg-map/lib/index.css";
 import { getContinentName, getLocationName } from '../../../../helpers/country/utils';
 import CustomButton from '../../../../components/CustomButton';
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom';
 
-const CountrySelection = ({setSelected, setHuntState}) => {
+const CountrySelection = ({ setHuntState, setStats, timer }) => {
   const [hoveredContinent, setHoveredContinent] = useState('')
   const [selectedCountry, setSelectedCountry] = useState('')
   const [hoveredCountry, setHoveredCountry] = useState('')
 
+  const [attempts, setAttempts] = useState(1)
+
+  localStorage.setItem('hunt_state', 1)
+  const navigate = useNavigate()
+
   const handleSubmit = () => {
+    setAttempts(attempts + 1)
     if(selectedCountry === 'India') {
       setHuntState(2)
       toast('You are Right')
+      setStats(current => [...current, {time: timer, attempts: attempts}])
       toast('You are a great Hunter!')
     } else {
-      toast('Wrong Answer! Try Again')
+      if(attempts === 1)
+        toast('Wrong Answer! You have one more attempt')
+      else if (attempts === 2){
+        toast('Wrong Answer! You have reached a dead end... Start Again.')
+        navigate('/hunts')
+      }
     }
   }
 
@@ -31,14 +44,6 @@ const CountrySelection = ({setSelected, setHuntState}) => {
             onLocationMouseOver={(event) => {
               setHoveredCountry(getLocationName(event))
               setHoveredContinent(getContinentName(event))
-            }}
-            onChange={(event) => {
-              setSelected(prevState => {
-                return {
-                  ...prevState,
-                  selectedLocations: event.map(node => node.attributes.name.value)
-                };
-              });
             }}
             onLocationClick={(event) => {
               setSelectedCountry(getLocationName(event))
