@@ -6,6 +6,7 @@ import dotenv from 'dotenv'
 
 import authRoutes from './routes/authRoutes.js'
 import userRoutes from './routes/userRoutes.js'
+import huntRoutes from './routes/huntRoutes.js'
 
 dotenv.config()
 const app = express()
@@ -23,6 +24,7 @@ app.use(cors({
 
 app.use('/auth', authRoutes)
 app.use('/user', userRoutes) 
+app.use('/hunt', huntRoutes) 
 
 const URL = process.env.DB_URL
 const PORT = process.env.PORT || 4500
