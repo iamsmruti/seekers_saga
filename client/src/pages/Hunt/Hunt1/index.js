@@ -19,14 +19,23 @@ const HuntOne = () => {
   const [timer, setTimer] = useState(0)
 
   useEffect(() => {
-    console.log(stats)
-  }, [stats])
+    if(localStorage.getItem('hunt_state')){
+      setHuntState(Number(localStorage.getItem('hunt_state')))
+    } else {
+      setHuntState(0)
+    }
+
+    if(localStorage.getItem('hunt1_stat')){
+      setStats(JSON.parse(localStorage.getItem('hunt1_stat')))
+    } else {
+      setStats([])
+    }
+  }, [])
 
   useEffect(() => {
-    if(huntState === 5){
-
-    }
-  }, [huntState])
+    console.log(stats)
+    localStorage.setItem('hunt1_stat', JSON.stringify(stats))
+  }, [stats])
 
   return (
     <Layout>
@@ -36,7 +45,11 @@ const HuntOne = () => {
           <p>Solve the riddles to get to your treasure</p>
         </div>
         <div>
-          {huntState !== 5 && <StopWatch setTimer={setTimer}/>}
+          {huntState === 0 && <StopWatch setTimer={setTimer}/>}
+          {huntState === 1 && <StopWatch setTimer={setTimer}/>}
+          {huntState === 2 && <StopWatch setTimer={setTimer}/>}
+          {huntState === 3 && <StopWatch setTimer={setTimer}/>}
+          {huntState === 4 && <StopWatch setTimer={setTimer}/>}
         </div>
       </div>
 

@@ -5,8 +5,10 @@ import { useNavigate } from 'react-router-dom'
 
 const FinalTreasure = () => {
   const navigate = useNavigate()
+  localStorage.setItem('hunt_state', 5)
   const handleSubmit = () => {
     navigate('/hunts')
+    localStorage.removeItem('hunt_state')
   }
   return (
     <div className='mt-2 px-5'>

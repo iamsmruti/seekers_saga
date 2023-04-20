@@ -13,8 +13,6 @@ const ContinentSelection = ({setHuntState, setStats, timer}) => {
   const [hoveredContinent, setHoveredContinent] = useState('')
   const [attempts, setAttempts] = useState(1)
 
-  localStorage.setItem('hunt_state', 0)
-
   const navigate = useNavigate()
 
   const handleSubmit = () => {
