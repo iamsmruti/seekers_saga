@@ -7,8 +7,11 @@ import Puzzle from './pages/Puzzle';
 import Hunt from './pages/Hunt';
 import PuzzleOne from './pages/Puzzle/Puzzle1';
 import HuntOne from './pages/Hunt/Hunt1';
+import { API } from './constants';
 
 function App() {
+  console.log(process.env.REACT_APP_DEV)
+  console.log(API)
   return (
     <Router>
       <Routes>
