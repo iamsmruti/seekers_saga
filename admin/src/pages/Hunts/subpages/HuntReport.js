@@ -7,10 +7,10 @@ import ReportCard from '../../../components/ReportCard'
 
 import Heading from '../../../components/Heading'
 
-const PuzzlesReport = () => {
+const HuntReport = () => {
     const [reports, setReports] = useState()
     useEffect(() => {
-        axios.get(`${API}/puzzle/all`, {
+        axios.get(`${API}/hunt/all`, {
             headers: {
                 token: localStorage.getItem('admin_token')
             }
@@ -23,7 +23,7 @@ const PuzzlesReport = () => {
 
     return (
         <Layout>
-            <Heading title={"Find the odd one... [ Reports ]"} subtitle={"Following are the stats who completed the puzzle."}/>
+            <Heading title={"Treasure Hunt - Chapter 1 [ Reports ]"} subtitle={"Following are the stats who completed the Treasure Hunt."}/>
             
             <div className='mt-5'>
                 {reports?.map((report) => (
@@ -34,4 +34,4 @@ const PuzzlesReport = () => {
     )
 }
 
-export default PuzzlesReport
+export default HuntReport

@@ -9,6 +9,7 @@ import Hunts from './pages/Hunts';
 import AddPuzzle from './pages/Puzzles/subpages/AddPuzzle';
 import AddHunt from './pages/Hunts/subpages/AddHunt';
 import PuzzlesReport from './pages/Puzzles/subpages/PuzzlesReport';
+import HuntReport from './pages/Hunts/subpages/HuntReport';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path='/puzzles/:slug' element={<PuzzlesReport />}/>
           <Route path='/add-puzzle' element={<AddPuzzle />}/>
           <Route path='/hunts' element={<Hunts />}/>
+          <Route path='/hunts/:slug' element={<HuntReport />}/>
           <Route path='/add-hunt' element={<AddHunt />}/>
         </Route>
       </Routes>

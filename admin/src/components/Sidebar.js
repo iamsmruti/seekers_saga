@@ -28,11 +28,6 @@ const Sidebar = () => {
       title: 'Users',
       path: '/users',
       icon: <ImUsers />
-    },
-    {
-      title: 'Profile',
-      path: '/profile',
-      icon: <CgProfile />
     }
   ]
   return (
