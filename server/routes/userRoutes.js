@@ -5,7 +5,7 @@ import { userRoles, userInfo, allUsers, deleteUser, updateUser, updateUserRoles 
 import { verify } from '../middlewares/verify.js'
 
 router.get('/roles', verify, userRoles )
-router.get('/all', allUsers)
+router.get('/all', verify, allUsers)
 router.get('/info', verify, userInfo )
 router.delete('/delete', deleteUser)
 router.put('/update', updateUser )
