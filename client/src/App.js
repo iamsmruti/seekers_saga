@@ -10,8 +10,6 @@ import HuntOne from './pages/Hunt/Hunt1';
 import { API } from './constants';
 
 function App() {
-  console.log(process.env.REACT_APP_DEV)
-  console.log(API)
   return (
     <Router>
       <Routes>
