@@ -1,17 +1,17 @@
-import image1 from '../../../assets/images/puzzle_1/eye_teaser_1.jpg'
-import image2 from '../../../assets/images/puzzle_1/eye_teaser_2.jpg'
-import image3 from '../../../assets/images/puzzle_1/eye_teaser_3.jpg'
-import image4 from '../../../assets/images/puzzle_1/eye_teaser_4.jpg'
-import image5 from '../../../assets/images/puzzle_1/eye_teaser_5.jpg'
-import image6 from '../../../assets/images/puzzle_1/eye_teaser_6.jpg'
-import image7 from '../../../assets/images/puzzle_1/eye_teaser_7.jpg'
-import image8 from '../../../assets/images/puzzle_1/eye_teaser_8.jpg'
-import image9 from '../../../assets/images/puzzle_1/eye_teaser_9.jpg'
+import image1 from '../../../assets/images/puzzle_1/1.png'
+import image2 from '../../../assets/images/puzzle_1/2.png'
+import image3 from '../../../assets/images/puzzle_1/3.png'
+import image4 from '../../../assets/images/puzzle_1/4.png'
+import image5 from '../../../assets/images/puzzle_1/5.png'
+import image6 from '../../../assets/images/puzzle_1/6.png'
+import image7 from '../../../assets/images/puzzle_1/7.png'
+import image8 from '../../../assets/images/puzzle_1/8.png'
+import image9 from '../../../assets/images/puzzle_1/9.png'
 
 export const puzzle1 = [
     {
         image: image1,
-        answer: '',
+        answer: 'r3_c5',
     },
     {
         image: image2,
