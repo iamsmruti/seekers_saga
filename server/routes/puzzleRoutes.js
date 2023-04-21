@@ -5,8 +5,8 @@ import { createReport, showReports, showAllReports } from '../controllers/puzzle
 import { verify } from '../middlewares/verify.js'
 
 router.post('/create', verify , createReport )
-router.get('/', showReports)
-router.get('/all', showAllReports)
+router.get('/', verify, showReports)
+router.get('/all', verify, showAllReports)
 
 
 export default router

@@ -1,9 +1,9 @@
-import HuntReport from '../models/HuntReport.js'
+import PuzzleReport from '../models/PuzzleReport.js'
 
 export const createReport = async (req, res) => {
     const user = req.user
     try {
-        const newHunt = new HuntReport({
+        const newHunt = new PuzzleReport({
             name: req.body.name,
             user: user.email,
             speed: req.body.speed,
@@ -22,7 +22,7 @@ export const showReports = async (req, res) => {
     const user = req.user
 
     try {
-        const reports = await HuntReport.find({user: user.email})
+        const reports = await PuzzleReport.find({user: user.email})
         res.status(200).json(reports)
     } catch(err) {
         res.json({error: err})
@@ -31,7 +31,7 @@ export const showReports = async (req, res) => {
 
 export const showAllReports = async (req, res) => {
     try {
-        const reports = await HuntReport.find({})
+        const reports = await PuzzleReport.find({})
         res.status(200).json(reports)
     } catch(err) {
         res.json({error: err})

@@ -8,6 +8,7 @@ import Puzzles from './pages/Puzzles';
 import Hunts from './pages/Hunts';
 import AddPuzzle from './pages/Puzzles/subpages/AddPuzzle';
 import AddHunt from './pages/Hunts/subpages/AddHunt';
+import PuzzlesReport from './pages/Puzzles/subpages/PuzzlesReport';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path='/users' element={<Users />}/>
           <Route path='/profile' element={<Profile />}/>
           <Route path='/puzzles' element={<Puzzles />}/>
+          <Route path='/puzzles/:slug' element={<PuzzlesReport />}/>
           <Route path='/add-puzzle' element={<AddPuzzle />}/>
           <Route path='/hunts' element={<Hunts />}/>
           <Route path='/add-hunt' element={<AddHunt />}/>
