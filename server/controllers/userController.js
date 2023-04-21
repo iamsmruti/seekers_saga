@@ -10,6 +10,16 @@ export const allUsers = async (req, res) => {
     }
 }
 
+export const getUser = async (req, res) => {
+    const { email } = req.params
+    try {
+        const users = await User.find({email : email})
+        return res.status(200).json(users)
+    } catch(err) {
+        return res.json({error: err.message})
+    }
+}
+
 export const userInfo = async (req, res) => {
     const user = req.user
 

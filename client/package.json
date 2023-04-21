@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/material": "^5.12.1",
     "@svg-maps/australia": "^1.1.1",
     "@svg-maps/india": "^1.0.1",
     "@svg-maps/world": "^1.0.1",

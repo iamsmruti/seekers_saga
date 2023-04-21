@@ -34,6 +34,6 @@ export const showAllReports = async (req, res) => {
         const reports = await PuzzleReport.find({})
         res.status(200).json(reports)
     } catch(err) {
-        res.json({error: err})
+        res.json({error: err.message})
     }
 }
