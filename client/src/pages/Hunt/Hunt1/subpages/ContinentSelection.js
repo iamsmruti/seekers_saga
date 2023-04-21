@@ -1,20 +1,24 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify'
 
+// SVG Maps
 import World from '@svg-maps/world';
 import { SVGMap } from "react-svg-map";
 import "react-svg-map/lib/index.css";
+
+// Helpers & Components
 import { getContinentName } from '../../../../helpers/country/utils';
 import CustomButton from '../../../../components/CustomButton';
-import { toast } from 'react-toastify'
-import { useNavigate } from 'react-router-dom';
 
 const ContinentSelection = ({setHuntState, setStats, timer}) => {
+  const navigate = useNavigate()
+
   const [selectedContinent, setSelectedContinent] = useState('')
   const [hoveredContinent, setHoveredContinent] = useState('')
   const [attempts, setAttempts] = useState(1)
 
-  const navigate = useNavigate()
-
+  // Checks the answer and move forward
   const handleSubmit = () => {
     setAttempts(Number(attempts) + 1)
     if(selectedContinent === 'Asia') {
@@ -26,7 +30,6 @@ const ContinentSelection = ({setHuntState, setStats, timer}) => {
         toast('Wrong Answer! You have one more attempt')
       else if (attempts === 2){
         toast('Wrong Answer! You have reached a dead end... Start Again.')
-
         navigate('/hunts')
       }
     }

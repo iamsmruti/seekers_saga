@@ -53,7 +53,7 @@ const HuntOne = () => {
         </div>
       </div>
 
-      {huntState === 0 && <ContinentSelection timer={timer} stats={stats} setStats={setStats} setSelected={setSelected} setHuntState={setHuntState}/>}
+      {huntState === 0 && <ContinentSelection timer={timer} setStats={setStats} setHuntState={setHuntState}/>}
       {huntState === 1 && <CountrySelection timer={timer} setStats={setStats} setHuntState={setHuntState}/>}
       {huntState === 2 && <CapitalSelection timer={timer} setStats={setStats} setHuntState={setHuntState}/>}
       {huntState === 3 && <CitySelection timer={timer} setStats={setStats} setHuntState={setHuntState}/>}

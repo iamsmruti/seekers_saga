@@ -7,88 +7,62 @@ import CustomButton2 from '../../../../components/CustomButton2'
 import { API } from '../../../../constants'
 import axios from 'axios'
 
+import { generateReport } from '../../../../helpers/report/generateReport'
+
 const FinalTreasure = () => {
   const navigate = useNavigate()
+
+  // Saving the State of the Hunt
+  localStorage.setItem('hunt_state', 5)
 
   const [speed, setSpeed] = useState(0)
   const [accuracy, setAccuracy] = useState(0)
   const [intellectual, setIntellectual] = useState(0)
-
   const [report, setReport] = useState(false)
 
-  const generateReport = () => {
-    const data = JSON.parse(localStorage.getItem('hunt1_stat'))
-    let tempSpeed = 0
-    let tempAttempts = 0
+  // Use to load the stats from local storage 
+  // after 0.5 seconds of component render
+  useEffect(() => {
+    setTimeout(() => {
+      const data = JSON.parse(localStorage.getItem('hunt1_stat'))
 
-    data.map((item) => {
-      tempSpeed += item.time
-      tempAttempts += item.attempts
-    })
+      let tempSpeed = 0
+      let tempAttempts = 0
 
-    if(tempSpeed <= 60){
-      setSpeed({
-        grade: 'A+',
-        remark: 'Lightening Fast',
-        timeTaken: tempSpeed
+      data.map((item) => {
+        tempSpeed += item.time
+        tempAttempts += item.attempts
       })
-    } else if ( tempSpeed > 60 && tempSpeed < 80) {
-      setSpeed({
-        grade: 'A',
-        remark: 'Normal',
-        timeTaken: tempSpeed
-      })
-    } else {
-      setSpeed({
-        grade: 'B',
-        remark: 'You need some work',
-        timeTaken: tempSpeed
-      })
-    }
 
-    if(Number(tempAttempts) === 5){
-      setAccuracy({
-        grade: 'A+',
-        remark: 'Pin Point',
-        attemptsTaken: tempAttempts
-      })
-    } else if(Number(tempAttempts) > 5 && Number(tempAttempts) <= 7) {
-      setAccuracy({
-        grade: 'A',
-        remark: 'Umm! Okay',
-        attemptsTaken: tempAttempts
-      })
-    } else {
-      setAccuracy({
-        grade: 'B',
-        remark: 'Not Okay',
-        attemptsTaken: tempAttempts
-      })
-    }
+      const report = generateReport(tempSpeed, tempAttempts)
+      setSpeed(report.speed)
+      setAccuracy(report.accuracy)
+      setIntellectual(report.intellectual)
+      console.log(report)
+    }, 500)
+  }, [])
 
-    let tempIntellectual = (tempSpeed * tempAttempts)
+  // To end a Hunt ( remove states and move back )
+  const handleSubmit = () => {
+    navigate('/hunts')
+    localStorage.removeItem('hunt_state')
+    localStorage.removeItem('hunt1_stat')
+  }
 
-    if(tempIntellectual <= 300){
-      setIntellectual({
-        grade: 'A+',
-        remark: 'Cunning Fox',
-        score: tempIntellectual
-      })
-    } else if(tempAttempts > 300 && tempAttempts <= 560) {
-      setIntellectual({
-        grade: 'A',
-        remark: 'Usual Being',
-        score: tempIntellectual
-      })
-    } else {
-      setIntellectual({ 
-        grade: 'B',
-        remark: 'Fat Brain',
-        score: tempIntellectual
-      })
-    }
+  // Generate report and save to Database
+  const handleGenerateReport = () => {
+    saveToDB()
+    setReport(true)
+  }
 
+  // Function to save the report to DB
+  const saveToDB = () => {
     axios.post(`${API}/hunt/create`, {
+      name: 'Treasure Hunt - Chapter 1',
+      speed: speed,
+      accuracy: accuracy,
+      intellectual: intellectual
+    }, {
       headers: {
         token: localStorage.getItem('token')
       }
@@ -97,16 +71,6 @@ const FinalTreasure = () => {
     }).catch((err) => {
       
     })
-
-    setReport(true)
-    console.log({speed: speed,accuracy: accuracy,intellectual: intellectual})
-  }
-
-  localStorage.setItem('hunt_state', 5)
-  const handleSubmit = () => {
-    navigate('/hunts')
-    localStorage.removeItem('hunt_state')
-    localStorage.removeItem('hunt1_stat')
   }
 
   return (
@@ -148,7 +112,7 @@ const FinalTreasure = () => {
                   <p className='font-bold text-[12px]'>(intellectual)</p>
                 </div>
               </div>
-            </div> : <CustomButton2 onClick={generateReport} text={"generate Report"}/>}
+            </div> : <CustomButton2 onClick={handleGenerateReport} text={"generate Report"}/>}
 
           <div className='mt-5'>
             <CustomButton onClick={handleSubmit} text={"End the Quest"}/>

@@ -1,23 +1,28 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
+// SVG Maps
 import World from '@svg-maps/world';
 import { SVGMap } from "react-svg-map";
 import "react-svg-map/lib/index.css";
+
+// Helpers & Components
 import { getContinentName, getLocationName } from '../../../../helpers/country/utils';
 import CustomButton from '../../../../components/CustomButton';
-import { toast } from 'react-toastify'
-import { useNavigate } from 'react-router-dom';
 
 const CountrySelection = ({ setHuntState, setStats, timer }) => {
+  const navigate = useNavigate()
+
+  // Saves the state of Hunt
+  localStorage.setItem('hunt_state', 1)
+  
   const [hoveredContinent, setHoveredContinent] = useState('')
   const [selectedCountry, setSelectedCountry] = useState('')
   const [hoveredCountry, setHoveredCountry] = useState('')
-
   const [attempts, setAttempts] = useState(1)
 
-  localStorage.setItem('hunt_state', 1)
-  const navigate = useNavigate()
-
+  // Checks the answer and move forward  
   const handleSubmit = () => {
     setAttempts(attempts + 1)
     if(selectedCountry === 'India') {

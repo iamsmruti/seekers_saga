@@ -1,18 +1,20 @@
 import React, { useState } from 'react'
-import CustomButton from '../../../../components/CustomButton'
-import DelhiMap from '../../../../assets/images/hunt_1/delhi_map.png'
-
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 
+import DelhiMap from '../../../../assets/images/hunt_1/delhi_map.png'
+import CustomButton from '../../../../components/CustomButton'
+
 const CitySelection = ({setHuntState, setStats, timer}) => {
+  const navigate = useNavigate()
+
   const [city, setCity] = useState('')
   const [attempts, setAttempts] = useState(1)
 
+  // Saves the state of hunt
   localStorage.setItem('hunt_state', 3)
 
-  const navigate = useNavigate()
-
+  // Checks the answer and move forward
   const handleSubmit = () => {
     setAttempts(attempts + 1)
     if(city === 'Manali' || city === 'manali') {
@@ -29,6 +31,7 @@ const CitySelection = ({setHuntState, setStats, timer}) => {
       }
     }
   }
+
   return (
     <div className='mt-2 md:px-5 px-3'>
       <div className='grid md:grid-cols-2 grid-cols-1 gap-5 border-[0.5px] border-black p-3'>

@@ -6,13 +6,15 @@ import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 
 const PlaceSelection = ({setHuntState, setStats, timer}) => {
+  const navigate = useNavigate()
+
+  // Saving the State of the Hunt
+  localStorage.setItem('hunt_state', 4)
+
   const [answer, setAnswer] = useState('')
   const [attempts, setAttempts] = useState(1)
 
-  localStorage.setItem('hunt_state', 4)
-
-  const navigate = useNavigate()
-
+  // For checking the answer and movind forward
   const handleSubmit = () => {
     setAttempts(attempts + 1)
     if(answer === 'Under the river that is flowing beside him.') {
@@ -29,6 +31,7 @@ const PlaceSelection = ({setHuntState, setStats, timer}) => {
     }
   }
 
+  // For selecting the options
   const handleClick = (index) => {
     if(index === 1){
       setAnswer('Under the rock where he is sitting')
@@ -40,6 +43,7 @@ const PlaceSelection = ({setHuntState, setStats, timer}) => {
       setAnswer('Under the tree that is behind him.')
     }
   }
+  
   return (
     <div className='mt-2 px-5'>
       <div className='grid md:grid-cols-2 grid-cols-1 gap-5 border-[0.5px] border-black p-3'>

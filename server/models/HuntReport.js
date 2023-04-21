@@ -11,15 +11,54 @@ const HuntReportSchema = mongoose.Schema({
     },
     speed: {
         type: Object,
-        default: {}
+        default: {
+            grade: {
+                type: String,
+                default: ''
+            },
+            remark: {
+                type: String,
+                default: ''
+            },
+            score: {
+                type: Number,
+                default: 0
+            }
+        }
     },
-    Accuracy: {
+    accuracy: {
         type: Object,
-        default: {}
+        default: {
+            grade: {
+                type: String,
+                default: ''
+            },
+            remark: {
+                type: String,
+                default: ''
+            },
+            score: {
+                type: Number,
+                default: 0
+            }
+        }
     },
-    Intellectual: {
+    intellectual: {
         type: Object,
-        default: {}
+        default: {
+            grade: {
+                type: String,
+                default: ''
+            },
+            remark: {
+                type: String,
+                default: ''
+            },
+            score: {
+                type: Number,
+                default: 0
+            }
+        }
     }
 }, {timestamps : true})
 

@@ -2,9 +2,8 @@ import HuntReport from '../models/HuntReport.js'
 
 export const createReport = async (req, res) => {
     const user = req.user
-    
     try {
-        const newHunt = new HuntReport.create({
+        const newHunt = new HuntReport({
             name: req.body.name,
             user: user.email,
             speed: req.body.speed,
@@ -15,7 +14,7 @@ export const createReport = async (req, res) => {
         const hunt = await newHunt.save()
         res.status(200).json(hunt)
     } catch (err) {
-        res.json({error: err})
+        res.status(500).json(err.message)
     }
 }
 

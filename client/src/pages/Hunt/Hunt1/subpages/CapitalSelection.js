@@ -1,21 +1,27 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
+// SVG Maps
 import India from '@svg-maps/india';
 import { SVGMap } from "react-svg-map";
 import "react-svg-map/lib/index.css";
+
+// Helpers & Components
 import { getLocationName } from '../../../../helpers/country/utils';
 import CustomButton from '../../../../components/CustomButton';
-import { toast } from 'react-toastify'
-import { useNavigate } from 'react-router-dom';
 
 const CapitalSelection = ({setHuntState, setSelected, setStats, timer}) => {
+  const navigate = useNavigate()
+  
+  // Saves the state of Hunt
+  localStorage.setItem('hunt_state', 2)
+
   const [selectedState, setSelectedState] = useState('')
   const [hoveredState, setHoveredState] = useState('')
   const [attempts, setAttempts] = useState(1)
 
-  localStorage.setItem('hunt_state', 2)
-  const navigate = useNavigate()
-
+  // Checks the answer and move forward
   const handleSubmit = () => {
     setAttempts(attempts + 1)
     if(selectedState === 'New Delhi' || selectedState === 'Delhi') {
