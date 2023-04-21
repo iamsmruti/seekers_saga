@@ -34,7 +34,7 @@ const FinalTreasure = () => {
         tempAttempts += item.attempts
       })
 
-      const report = generateReport(tempSpeed, tempAttempts)
+      const report = generateReport(tempSpeed, tempAttempts, 5)
       setSpeed(report.speed)
       setAccuracy(report.accuracy)
       setIntellectual(report.intellectual)

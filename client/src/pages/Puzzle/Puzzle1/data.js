@@ -11,38 +11,38 @@ import image9 from '../../../assets/images/puzzle_1/9.png'
 export const puzzle1 = [
     {
         image: image1,
-        answer: 'r3_c5',
+        answer: 'r3_c2',
     },
     {
         image: image2,
-        answer: ''
+        answer: 'r6_c7'
     },
     {
         image: image3,
-        answer: ''
+        answer: 'r6_c6'
     },
     {
         image: image4,
-        answer: ''
+        answer: 'r3_c6'
     },
     {
         image: image5,
-        answer: ''
+        answer: 'r4_c2'
     },
     {
         image: image6,
-        answer: ''
+        answer: 'r3_c3'
     },
     {
         image: image7,
-        answer: ''
+        answer: 'r2_c5'
     },
     {
         image: image8,
-        answer: ''
+        answer: 'r6_c2'
     },
     {
         image: image9,
-        answer: ''
+        answer: 'r3_c6'
     }
 ]

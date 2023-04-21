@@ -1,9 +1,9 @@
-export const generateReport = (tempSpeed, tempAttempts) => {
+export const generateReport = (tempSpeed, tempAttempts, total) => {
     let speed
     let accuracy
     let intellectual
 
-    if(tempSpeed <= 60){
+    if(tempSpeed <= 60 && tempSpeed != 0){
       speed = {
         grade: 'A+',
         remark: 'Lightening Fast',
@@ -23,13 +23,13 @@ export const generateReport = (tempSpeed, tempAttempts) => {
       }
     }
 
-    if(Number(tempAttempts) === 5){
+    if(Number(tempAttempts) === total){
       accuracy = {
         grade: 'A+',
         remark: 'Pin Point',
         attemptsTaken: tempAttempts
       }
-    } else if(Number(tempAttempts) > 5 && Number(tempAttempts) <= 7) {
+    } else if(Number(tempAttempts) > total && Number(tempAttempts) <= total/2) {
       accuracy = {
         grade: 'A',
         remark: 'Umm! Okay',
@@ -45,7 +45,7 @@ export const generateReport = (tempSpeed, tempAttempts) => {
 
     let tempIntellectual = (tempSpeed * tempAttempts)
 
-    if(tempIntellectual <= 300){
+    if(tempIntellectual <= 300 && tempIntellectual !== 0){
       intellectual = {
         grade: 'A+',
         remark: 'Cunning Fox',

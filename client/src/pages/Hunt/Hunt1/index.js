@@ -12,10 +12,7 @@ import StopWatch from '../../../components/StopWatch';
 
 const HuntOne = () => {
   const [huntState, setHuntState] = useState(0)
-  const [selected, setSelected] = useState([])
-
   const [stats, setStats] = useState([])
-
   const [timer, setTimer] = useState(0)
 
   useEffect(() => {
