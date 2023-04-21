@@ -8,6 +8,7 @@ import { API } from '../../../../constants'
 import axios from 'axios'
 
 import { generateReport } from '../../../../helpers/report/generateReport'
+import ReportComponent from '../../../../components/ReportComponent'
 
 const FinalTreasure = () => {
   const navigate = useNavigate()
@@ -86,33 +87,9 @@ const FinalTreasure = () => {
           <p className='mt-5 text-blue-500 underline'><a href='/treasure1.png' target='_blank'>Treasure</a></p>
           <p className='text-pinkShade text-[24px] font-mono mt-5'>You are happy with the treasure right ? Welcome</p>
           
-            {report ? <div className='mt-5 bg-greenShade h-[220px] p-2'>
-              <p className='text-[24px] font-semibold text-deepPurpleShade'>Performance Report</p>
-
-              <div className='grid grid-cols-3 mt-2'>
-                <div className='flex flex-col justify-center items-center'>
-                  <div className='w-[100px] h-[100px] bg-white rounded-full border-darkGreenShade border-4 flex justify-center items-center'>
-                    <p className='text-[32px] font-bold text-darkGreenShade'>{speed.grade}</p>
-                  </div>
-                  <p className='mt-2'>{speed.remark}</p>
-                  <p className='font-bold text-[12px]'>(speed)</p>
-                </div>
-                <div className='flex flex-col justify-center items-center'>
-                  <div className='w-[100px] h-[100px] bg-white rounded-full border-darkGreenShade border-4 flex justify-center items-center'>
-                    <p className='text-[32px] font-bold text-darkGreenShade'>{accuracy.grade}</p>
-                  </div>
-                  <p className='mt-2'>{accuracy.remark}</p>
-                  <p className='font-bold text-[12px]'>(accuracy)</p>
-                </div>
-                <div className='flex flex-col justify-center items-center'>
-                  <div className='w-[100px] h-[100px] bg-white rounded-full border-darkGreenShade border-4 flex justify-center items-center'>
-                    <p className='text-[32px] font-bold text-darkGreenShade'>{intellectual.grade}</p>
-                  </div>
-                  <p className='mt-2'>{intellectual.remark}</p>
-                  <p className='font-bold text-[12px]'>(intellectual)</p>
-                </div>
-              </div>
-            </div> : <CustomButton2 onClick={handleGenerateReport} text={"generate Report"}/>}
+            {report 
+              ? <ReportComponent speed={speed} accuracy={accuracy} intellectual={intellectual}/> 
+              : <CustomButton2 onClick={handleGenerateReport} text={"generate Report"}/>}
 
           <div className='mt-5'>
             <CustomButton onClick={handleSubmit} text={"End the Quest"}/>

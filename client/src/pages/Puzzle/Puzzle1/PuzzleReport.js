@@ -6,6 +6,7 @@ import { generateReport } from '../../../helpers/report/generateReport'
 import { API } from '../../../constants'
 import CustomButton2 from '../../../components/CustomButton2'
 import CustomButton from '../../../components/CustomButton'
+import ReportComponent from '../../../components/ReportComponent'
 
 
 const PuzzleReport = ({index, stats}) => {
@@ -80,35 +81,11 @@ const PuzzleReport = ({index, stats}) => {
                 <p className='font-semibold text-[28px]'>Congrats! You have Reached the end...</p>
                 <p>Click below to generate a report</p>
 
-                {report ? <div className='mt-5 bg-greenShade h-[220px] p-2'>
-                    <p className='text-[24px] font-semibold text-deepPurpleShade'>Performance Report</p>
+                {report 
+                  ? <ReportComponent speed={speed} accuracy={accuracy} intellectual={intellectual}/> 
+                  : <CustomButton2 onClick={handleGenerateReport} text={"generate Report"}/>}
 
-                    <div className='grid grid-cols-3 mt-2'>
-                        <div className='flex flex-col justify-center items-center'>
-                        <div className='w-[100px] h-[100px] bg-white rounded-full border-darkGreenShade border-4 flex justify-center items-center'>
-                            <p className='text-[32px] font-bold text-darkGreenShade'>{speed.grade}</p>
-                        </div>
-                        <p className='mt-2'>{speed.remark}</p>
-                        <p className='font-bold text-[12px]'>(speed)</p>
-                        </div>
-                        <div className='flex flex-col justify-center items-center'>
-                        <div className='w-[100px] h-[100px] bg-white rounded-full border-darkGreenShade border-4 flex justify-center items-center'>
-                            <p className='text-[32px] font-bold text-darkGreenShade'>{accuracy.grade}</p>
-                        </div>
-                        <p className='mt-2'>{accuracy.remark}</p>
-                        <p className='font-bold text-[12px]'>(accuracy)</p>
-                        </div>
-                        <div className='flex flex-col justify-center items-center'>
-                        <div className='w-[100px] h-[100px] bg-white rounded-full border-darkGreenShade border-4 flex justify-center items-center'>
-                            <p className='text-[32px] font-bold text-darkGreenShade'>{intellectual.grade}</p>
-                        </div>
-                        <p className='mt-2'>{intellectual.remark}</p>
-                        <p className='font-bold text-[12px]'>(intellectual)</p>
-                        </div>
-                    </div>
-                </div> : <CustomButton2 onClick={handleGenerateReport} text={"generate Report"}/>}
-
-                <div className='mt-5'>
+                <div className='mt-auto'>
                     <CustomButton onClick={handleSubmit} text={"End the Quest"}/>
                 </div>
             </div>

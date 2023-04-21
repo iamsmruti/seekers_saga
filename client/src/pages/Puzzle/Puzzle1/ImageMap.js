@@ -36,7 +36,8 @@ const ImageMap = ({item, timer, setStats, setPuzzleState}) => {
         }
     }
   return (
-    <div>
+    <>
+    <div className='hidden md:block'>
         <ImageMapper 
             src={item.image} 
             map={MAP} 
@@ -44,6 +45,17 @@ const ImageMap = ({item, timer, setStats, setPuzzleState}) => {
             onClick={area => handleClickedAnswer(area)}
         />
     </div>
+    <div className='md:hidden block w-fit scale-[70%]'>
+        <div className='m-[-80px]'>
+        <ImageMapper 
+            src={item.image} 
+            map={MAP} 
+            width={500}
+            onClick={area => handleClickedAnswer(area)}
+        />
+        </div>
+    </div>
+    </>
   )
 }
 
