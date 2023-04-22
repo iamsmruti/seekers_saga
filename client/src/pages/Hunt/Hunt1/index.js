@@ -40,6 +40,7 @@ const HuntOne = () => {
         <div>
           <h1 className='text-[28px] font-semibold'>Treasure Hunt - Chapter 1</h1>
           <p>Solve the riddles to get to your treasure</p>
+          {huntState !== 5 && <p className='md:hidden block text-darkGreenShade font-bold text-xs'>You can pinch to zoom the map and then select</p>}
         </div>
         <div>
           {huntState === 0 && <StopWatch setTimer={setTimer}/>}

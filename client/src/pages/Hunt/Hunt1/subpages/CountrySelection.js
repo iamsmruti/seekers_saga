@@ -64,7 +64,7 @@ const CountrySelection = ({ setHuntState, setStats, timer }) => {
           <p>Find it...</p>
           <p className='text-pinkShade text-[24px] font-mono mt-20'>I am a crowded country with vivid religions and a lot of languages. I am very much known for my colourful festivals. Who am I ?</p>
           
-          <p className='mt-[50px]'>click on the map to select any continent</p>
+          <p className='mt-[50px]'>click on the map to select any country</p>
           <input value={selectedCountry} className='border-2 px-3 py-1 outline-none border-black w-[100%]' placeholder='write your answer'/>
           <div>
             <CustomButton onClick={handleSubmit} text={"Submit & Next"}/>
