@@ -54,13 +54,13 @@ export const generateReport = (tempSpeed, tempAttempts, total) => {
     } else if(tempAttempts > 300 && tempAttempts <= 560) {
       intellectual = {
         grade: 'A',
-        remark: 'Usual Being',
+        remark: 'Being Usual',
         score: tempIntellectual
       }
     } else {
       intellectual = { 
         grade: 'B',
-        remark: 'Fat Brain',
+        remark: 'Absent minded',
         score: tempIntellectual
       }
     }

@@ -3,7 +3,7 @@ import { useTimer } from 'react-timer-hook';
 
 function Timer({ expiryTimestamp, times, setPuzzleState, setTimer, puzzleState }) {
   const time = new Date();
-  time.setSeconds(time.getSeconds() + 15);
+  time.setSeconds(time.getSeconds() + 25);
 
   const [trigger, setTrigger] = useState(0)
 
