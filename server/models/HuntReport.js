@@ -9,6 +9,18 @@ const HuntReportSchema = mongoose.Schema({
         type: String, 
         default: ''
     },
+    totalTime: {
+        type: Number,
+        default: 0
+    },
+    totalAttempts: {
+        type: Number,
+        default: 0
+    },
+    stats: {
+        type: Array,
+        default: []
+    },
     speed: {
         type: Object,
         default: {

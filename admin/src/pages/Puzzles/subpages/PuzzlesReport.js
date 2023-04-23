@@ -3,12 +3,15 @@ import Layout from '../../../components/Layout'
 
 import { API } from '../../../constants'
 import axios from 'axios'
-import ReportCard from '../../../components/ReportCard'
+import PuzzleReportCard from '../../../components/PuzzleReportCard'
 
 import Heading from '../../../components/Heading'
+import { useForceRerender } from '../../../hooks/useForceRender'
 
 const PuzzlesReport = () => {
     const [reports, setReports] = useState()
+    const [trigger, setTrigger] = useState(0)
+
     useEffect(() => {
         axios.get(`${API}/puzzle/all`, {
             headers: {
@@ -19,7 +22,7 @@ const PuzzlesReport = () => {
         }).catch((err) => {
             console.log(err)
         })
-    }, [])
+    }, [trigger])
 
     return (
         <Layout>
@@ -27,7 +30,7 @@ const PuzzlesReport = () => {
             
             <div className='mt-5'>
                 {reports?.map((report) => (
-                    <ReportCard report={report}/>
+                    <PuzzleReportCard report={report} setTrigger={setTrigger}/>
                 ))}
             </div>
         </Layout>

@@ -10,7 +10,7 @@ import PuzzleReport from './PuzzleReport';
 
 const PuzzleOne = () => {
     const time = new Date();
-    time.setSeconds(time.getSeconds() + 15);
+    time.setSeconds(time.getSeconds() + 25);
 
     const [puzzleState, setPuzzleState] = useState()
     const [stats, setStats] = useState([])

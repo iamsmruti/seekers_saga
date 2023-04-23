@@ -12,6 +12,7 @@ const ImageMap = ({item, timer, setStats, setPuzzleState}) => {
         return [x-width/2, y - width/2, x-width/2, y + width/2, x + width/2, y + width/2, x + width/2, y - width/2]
     }
 
+    // For generating grid on the Image Map
     let allBoxes = []
 
     for(let i = 0; i < 7; i++){
@@ -24,12 +25,13 @@ const ImageMap = ({item, timer, setStats, setPuzzleState}) => {
         areas: allBoxes
     }
     
+    // For storing the outcomes of each puzzle
     const handleClickedAnswer = (area) => {
         setAttempts(Number(attempts) + 1)
 
         if(area.name === item.answer){
             toast('You got it')
-            setStats(current => [...current, {time: 15 - timer, attempts: attempts}])
+            setStats(current => [...current, {time: 25 - timer, attempts: attempts}])
             setPuzzleState(prev => prev + 1)
         } else {
             toast("Wrong Answer!")

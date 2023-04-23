@@ -3,12 +3,14 @@ import Layout from '../../../components/Layout'
 
 import { API } from '../../../constants'
 import axios from 'axios'
-import ReportCard from '../../../components/ReportCard'
+import HuntReportCard from '../../../components/HuntReportCard'
 
 import Heading from '../../../components/Heading'
 
 const HuntReport = () => {
     const [reports, setReports] = useState()
+    const [trigger, setTrigger] = useState(0)
+
     useEffect(() => {
         axios.get(`${API}/hunt/all`, {
             headers: {
@@ -19,7 +21,7 @@ const HuntReport = () => {
         }).catch((err) => {
             console.log(err)
         })
-    }, [])
+    }, [trigger])
 
     return (
         <Layout>
@@ -27,7 +29,7 @@ const HuntReport = () => {
             
             <div className='mt-5'>
                 {reports?.map((report) => (
-                    <ReportCard report={report}/>
+                    <HuntReportCard report={report} setTrigger={setTrigger}/>
                 ))}
             </div>
         </Layout>

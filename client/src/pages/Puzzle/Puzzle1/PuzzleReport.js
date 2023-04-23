@@ -17,6 +17,8 @@ const PuzzleReport = ({index, stats}) => {
     const [accuracy, setAccuracy] = useState(0)
     const [intellectual, setIntellectual] = useState(0)
     const [report, setReport] = useState(false)
+    const [totalTime, setTotalTime] = useState(0)
+    const [totalAttempts, setTotalAttempts] = useState(0)
 
   // Use to load the stats from local storage 
   // after 0.5 seconds of component render
@@ -32,6 +34,9 @@ const PuzzleReport = ({index, stats}) => {
         tempAttempts += item.attempts
       })
 
+      setTotalTime(tempSpeed)
+      setTotalAttempts(tempAttempts)
+
       const report = generateReport(tempSpeed, tempAttempts, 9)
       setSpeed(report.speed)
       setAccuracy(report.accuracy)
@@ -39,6 +44,10 @@ const PuzzleReport = ({index, stats}) => {
       console.log(report)
     }, 500)
   }, [])
+
+  useEffect(() => {
+    console.log(totalTime)
+  }, [totalTime, totalAttempts])
 
     // To end a Hunt ( remove states and move back )
   const handleSubmit = () => {
@@ -59,7 +68,10 @@ const PuzzleReport = ({index, stats}) => {
       name: 'Find the odd one...',
       speed: speed,
       accuracy: accuracy,
-      intellectual: intellectual
+      intellectual: intellectual,
+      totalTime: totalTime,
+      totalAttempts: totalAttempts,
+      stats: stats
     }, {
       headers: {
         token: localStorage.getItem('token')

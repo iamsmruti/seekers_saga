@@ -1,11 +1,25 @@
-import React from 'react'
-import {getUserDetails} from '../api/getUserDetails'
+import React, { useState } from 'react'
 import ReportComponent from './ReportComponent'
 import { MdDelete } from 'react-icons/md'
+import axios from 'axios'
+import { API } from '../constants'
+import { toast } from 'react-toastify'
 
-const ReportCard = ({report}) => {
+const PuzzleReportCard = ({report, setTrigger}) => {
     const handleDelete = () => {
-        
+        axios.post(`${API}/puzzle/delete`,{
+            id: report._id
+        },{
+            headers: {
+                token: localStorage.getItem('admin_token')
+            }
+        }).then((res) => {
+            console.log(res)
+            setTrigger(prev => prev + 1)
+            toast(res)
+        }).catch((err) => {
+            toast(err.message)
+        })
     }
 
     return (
@@ -41,4 +55,4 @@ const ReportCard = ({report}) => {
     )
 }
 
-export default ReportCard
+export default PuzzleReportCard

@@ -9,6 +9,9 @@ export const createReport = async (req, res) => {
             speed: req.body.speed,
             accuracy: req.body.accuracy,
             intellectual: req.body.intellectual,
+            stats: req.body.stats,
+            totalTime: req.body.totalTime,
+            totalAttempts: req.body.totalAttempts
         })
 
         const hunt = await newHunt.save()
@@ -33,6 +36,18 @@ export const showAllReports = async (req, res) => {
     try {
         const reports = await PuzzleReport.find({})
         res.status(200).json(reports)
+    } catch(err) {
+        res.json({error: err.message})
+    }
+}
+
+export const deleteReport = async (req, res) => {
+    const id = req.body.id
+    console.log(id)
+
+    try {
+        await PuzzleReport.findByIdAndDelete(id)
+        return res.status(200).json("Puzzle Stats deleted")
     } catch(err) {
         res.json({error: err.message})
     }

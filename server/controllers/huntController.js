@@ -37,3 +37,15 @@ export const showAllReports = async (req, res) => {
         res.json({error: err})
     }
 }
+
+export const deleteReport = async (req, res) => {
+    const id = req.body.id
+    console.log(id)
+
+    try {
+        await HuntReport.findByIdAndDelete(id)
+        return res.status(200).json("Puzzle Stats deleted")
+    } catch(err) {
+        res.json({error: err.message})
+    }
+}
