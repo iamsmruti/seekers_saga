@@ -21,56 +21,9 @@ const PuzzleReportSchema = mongoose.Schema({
         type: Array,
         default: []
     },
-    speed: {
-        type: Object,
-        default: {
-            grade: {
-                type: String,
-                default: ''
-            },
-            remark: {
-                type: String,
-                default: ''
-            },
-            score: {
-                type: Number,
-                default: 0
-            }
-        }
-    },
-    accuracy: {
-        type: Object,
-        default: {
-            grade: {
-                type: String,
-                default: ''
-            },
-            remark: {
-                type: String,
-                default: ''
-            },
-            score: {
-                type: Number,
-                default: 0
-            }
-        }
-    },
-    intellectual: {
-        type: Object,
-        default: {
-            grade: {
-                type: String,
-                default: ''
-            },
-            remark: {
-                type: String,
-                default: ''
-            },
-            score: {
-                type: Number,
-                default: 0
-            }
-        }
+    score: {
+        type: Number,
+        default: 0
     }
 }, {timestamps : true})
 

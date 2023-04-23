@@ -2,7 +2,7 @@ import React from 'react'
 import {BsFillPlayCircleFill} from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 
-const RiddleCard = ({title, time, level, image, path}) => {
+const RiddleCard = ({title, time, level, image, path, leaderboard}) => {
   return (
     <div className='flex flex-col md:m-2 m-[5px] relative w-fit border-[1px] pb-4'>
         <Link to={path}>
@@ -21,8 +21,17 @@ const RiddleCard = ({title, time, level, image, path}) => {
           <Link to={path}>
             <p className='text-[24px] font-semibold underline w-fit mb-2'>{title}</p>
           </Link>
+          <div>
             <p className='text-[18px]'><span className='font-semibold'>Total Time:</span> {time}</p>
             <p className='text-[18px]'><span className='font-semibold'>Level:</span> {level}</p>
+          </div>
+          <div className='mt-2 bg-blueShade mr-5 text-center p-2'>
+            <Link to={`/leaderboard/${leaderboard}`}>
+              <p>
+                  Leaderboard
+              </p>
+            </Link>
+          </div>
         </div>
     </div>
   )

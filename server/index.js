@@ -8,6 +8,7 @@ import authRoutes from './routes/authRoutes.js'
 import userRoutes from './routes/userRoutes.js'
 import huntRoutes from './routes/huntRoutes.js'
 import puzzleRoutes from './routes/puzzleRoutes.js'
+import leaderboardRoutes from './routes/leaderboardRoutes.js'
 
 dotenv.config()
 const app = express()
@@ -27,6 +28,7 @@ app.use('/auth', authRoutes)
 app.use('/user', userRoutes) 
 app.use('/hunt', huntRoutes) 
 app.use('/puzzle', puzzleRoutes) 
+app.use('/leaderboard', leaderboardRoutes)
 
 const URL = process.env.DB_URL
 const PORT = process.env.PORT || 4500

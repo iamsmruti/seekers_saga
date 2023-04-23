@@ -8,6 +8,7 @@ import Hunt from './pages/Hunt';
 import PuzzleOne from './pages/Puzzle/Puzzle1';
 import HuntOne from './pages/Hunt/Hunt1';
 import { API } from './constants';
+import Leaderboard from './pages/Leaderboard';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/puzzles/:id" element={<PuzzleOne />} />
           <Route path="/hunts" element={<Hunt />} />
           <Route path="/hunts/:id" element={<HuntOne />} />
+          <Route path="/leaderboard/:id" element={<Leaderboard /> } />
         </Route>
       </Routes>
     </Router>

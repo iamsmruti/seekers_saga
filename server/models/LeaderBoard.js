@@ -1,13 +1,14 @@
 import mongoose from 'mongoose'
 
-const HuntReportSchema = mongoose.Schema({
+const LeaderBoardSchema = mongoose.Schema({
     name: {
         type: String, 
         default: ''
     },
     user: {
         type: String, 
-        default: ''
+        default: '',
+        unique: true
     },
     totalTime: {
         type: Number,
@@ -17,15 +18,11 @@ const HuntReportSchema = mongoose.Schema({
         type: Number,
         default: 0
     },
-    stats: {
-        type: Array,
-        default: []
-    },
     score: {
         type: Number,
         default: 0
     }
 }, {timestamps : true})
 
-const HuntReport = mongoose.model('HuntReport', HuntReportSchema)
-export default HuntReport
+const LeaderBoard = mongoose.model('LeaderBoard', LeaderBoardSchema)
+export default LeaderBoard

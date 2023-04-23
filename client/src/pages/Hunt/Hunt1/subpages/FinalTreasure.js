@@ -10,7 +10,7 @@ import axios from 'axios'
 import { generateReport } from '../../../../helpers/report/generateReport'
 import ReportComponent from '../../../../components/ReportComponent'
 
-const FinalTreasure = () => {
+const FinalTreasure = ({stats}) => {
   const navigate = useNavigate()
 
   // Saving the State of the Hunt
@@ -20,6 +20,8 @@ const FinalTreasure = () => {
   const [accuracy, setAccuracy] = useState(0)
   const [intellectual, setIntellectual] = useState(0)
   const [report, setReport] = useState(false)
+  const [totalTime, setTotalTime] = useState(0)
+  const [totalAttempts, setTotalAttempts] = useState(0)
 
   // Use to load the stats from local storage 
   // after 0.5 seconds of component render
@@ -34,6 +36,9 @@ const FinalTreasure = () => {
         tempSpeed += item.time
         tempAttempts += item.attempts
       })
+
+      setTotalTime(tempSpeed)
+      setTotalAttempts(tempAttempts)
 
       const report = generateReport(tempSpeed, tempAttempts, 5)
       setSpeed(report.speed)
@@ -60,9 +65,10 @@ const FinalTreasure = () => {
   const saveToDB = () => {
     axios.post(`${API}/hunt/create`, {
       name: 'Treasure Hunt - Chapter 1',
-      speed: speed,
-      accuracy: accuracy,
-      intellectual: intellectual
+      totalTime: totalTime,
+      totalAttempts: totalAttempts,
+      stats: stats,
+      score: (600*5 - totalTime)*100 - totalAttempts*100
     }, {
       headers: {
         token: localStorage.getItem('token')

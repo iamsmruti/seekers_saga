@@ -56,7 +56,7 @@ const HuntOne = () => {
       {huntState === 2 && <CapitalSelection timer={timer} setStats={setStats} setHuntState={setHuntState}/>}
       {huntState === 3 && <CitySelection timer={timer} setStats={setStats} setHuntState={setHuntState}/>}
       {huntState === 4 && <PlaceSelection timer={timer} setStats={setStats} setHuntState={setHuntState}/>}
-      {huntState === 5 && <FinalTreasure timer={timer} setStats={setStats} setHuntState={setHuntState}/>}
+      {huntState === 5 && <FinalTreasure timer={timer} setStats={setStats} stats={stats} setHuntState={setHuntState}/>}
     </Layout>
   )
 }

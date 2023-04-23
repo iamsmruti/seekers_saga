@@ -62,26 +62,26 @@ const PuzzleReport = ({index, stats}) => {
     setReport(true)
   }
 
-    // Function to save the report to DB
+  // Function to save the report to DB
   const saveToDB = () => {
     axios.post(`${API}/puzzle/create`, {
       name: 'Find the odd one...',
-      speed: speed,
-      accuracy: accuracy,
-      intellectual: intellectual,
       totalTime: totalTime,
       totalAttempts: totalAttempts,
-      stats: stats
-    }, {
+      stats: stats,
+      score: (25*9 - totalTime)*100 - totalAttempts*50
+    },
+    {
       headers: {
         token: localStorage.getItem('token')
       }
     }).then((res) => {
       console.log(res)
     }).catch((err) => {
-      
+      console.log(err.message)
     })
   }
+  
   return (
     <div className='w-fit'>
         <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-6'>
