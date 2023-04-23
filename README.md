@@ -1,4 +1,4 @@
-<img width="200" src="(https://firebasestorage.googleapis.com/v0/b/blogarithm-bdb61.appspot.com/o/logo_detail.png?alt=media&token=9b5e610e-8f90-43b8-aa48-bb7ef1bb10f1"/>
+<img src="(https://firebasestorage.googleapis.com/v0/b/blogarithm-bdb61.appspot.com/o/logo_detail.png?alt=media&token=9b5e610e-8f90-43b8-aa48-bb7ef1bb10f1" width="400" height="200"/>
 
 # Seeker's Saga
 
