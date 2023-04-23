@@ -64,10 +64,11 @@ const PuzzleReport = ({index, stats}) => {
 
   // Function to save the report to DB
   const saveToDB = () => {
-    axios.post(`${API}/puzzle/create`, {
+    axios.post(`${API}/report/create`, {
       name: 'Find the odd one...',
       totalTime: totalTime,
       totalAttempts: totalAttempts,
+      category: 'puzzle',
       stats: stats,
       score: (25*9 - totalTime)*100 - totalAttempts*50
     },

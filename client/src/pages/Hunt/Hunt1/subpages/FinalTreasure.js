@@ -63,11 +63,12 @@ const FinalTreasure = ({stats}) => {
 
   // Function to save the report to DB
   const saveToDB = () => {
-    axios.post(`${API}/hunt/create`, {
+    axios.post(`${API}/report/create`, {
       name: 'Treasure Hunt - Chapter 1',
       totalTime: totalTime,
       totalAttempts: totalAttempts,
       stats: stats,
+      category: 'hunt',
       score: (600*5 - totalTime)*100 - totalAttempts*100
     }, {
       headers: {

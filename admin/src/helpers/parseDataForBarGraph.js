@@ -4,22 +4,22 @@ export const getBarChartData = (data) => {
     console.log(data)
     data.map((item) => {
         if(result[item.createdAt.substring(0, 10)]){
-            if(item.name[0] == 'T')
-                result[item.createdAt.substring(0, 10)].hunt += item.speed.timeTaken
+            if(item.category === 'hunt')
+                result[item.createdAt.substring(0, 10)].hunt += item.totalTime
             else 
-                result[item.createdAt.substring(0, 10)].puzzle += item.speed.timeTaken
+                result[item.createdAt.substring(0, 10)].puzzle += item.totalTime
         } else {
-            if(item.name[0] == 'T')
+            if(item.category === 'hunt')
                 result[item.createdAt.substring(0, 10)] = {
                     name: item.createdAt.substring(0, 10),
-                    hunt: item.speed.timeTaken,
+                    hunt: item.totalTime,
                     puzzle: 0
                 }
             else
                 result[item.createdAt.substring(0, 10)] = {
                     name: item.createdAt.substring(0, 10),
                     hunt: 0,
-                    puzzle: item.speed.timeTaken
+                    puzzle: item.totalTime
                 }
         }
     })

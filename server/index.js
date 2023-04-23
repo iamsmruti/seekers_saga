@@ -6,9 +6,8 @@ import dotenv from 'dotenv'
 
 import authRoutes from './routes/authRoutes.js'
 import userRoutes from './routes/userRoutes.js'
-import huntRoutes from './routes/huntRoutes.js'
-import puzzleRoutes from './routes/puzzleRoutes.js'
 import leaderboardRoutes from './routes/leaderboardRoutes.js'
+import reportRoutes from './routes/reportRoutes.js'
 
 dotenv.config()
 const app = express()
@@ -26,9 +25,8 @@ app.use(cors({
 
 app.use('/auth', authRoutes)
 app.use('/user', userRoutes) 
-app.use('/hunt', huntRoutes) 
-app.use('/puzzle', puzzleRoutes) 
 app.use('/leaderboard', leaderboardRoutes)
+app.use('/report', reportRoutes)
 
 const URL = process.env.DB_URL
 const PORT = process.env.PORT || 4500

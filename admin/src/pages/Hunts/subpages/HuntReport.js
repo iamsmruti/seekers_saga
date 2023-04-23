@@ -3,7 +3,7 @@ import Layout from '../../../components/Layout'
 
 import { API } from '../../../constants'
 import axios from 'axios'
-import HuntReportCard from '../../../components/HuntReportCard'
+import ReportCard from '../../../components/ReportCard'
 
 import Heading from '../../../components/Heading'
 
@@ -12,11 +12,12 @@ const HuntReport = () => {
     const [trigger, setTrigger] = useState(0)
 
     useEffect(() => {
-        axios.get(`${API}/hunt/all`, {
+        axios.get(`${API}/report/category/hunt`, {
             headers: {
                 token: localStorage.getItem('admin_token')
             }
         }).then((res) => {
+            console.log(res.data)
             setReports(res.data)
         }).catch((err) => {
             console.log(err)
@@ -29,7 +30,7 @@ const HuntReport = () => {
             
             <div className='mt-5'>
                 {reports?.map((report) => (
-                    <HuntReportCard report={report} setTrigger={setTrigger}/>
+                    <ReportCard report={report} setTrigger={setTrigger}/>
                 ))}
             </div>
         </Layout>

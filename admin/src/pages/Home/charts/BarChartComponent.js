@@ -10,7 +10,7 @@ const BarChartComponent = () => {
     const [data, setData] = useState([])
 
     useEffect(() => {
-      axios.get(`${API}/hunt/all`, {
+      axios.get(`${API}/report/all`, {
         headers: {
           token: localStorage.getItem('admin_token')
         }
@@ -20,21 +20,6 @@ const BarChartComponent = () => {
       }).catch((err) => {
         console.log(err)
       })
-
-      setTimeout(() => {
-        axios.get(`${API}/puzzle/all`, {
-          headers: {
-            token: localStorage.getItem('admin_token')
-          }
-        }).then((res) => {
-          console.log(res.data)
-          res.data.map((item) => {
-            setData1(prev => prev.concat(item))
-          })
-        }).catch((err) => {
-          console.log(err)
-        })
-      }, 500)
     }, [])
 
     setTimeout(() => {

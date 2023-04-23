@@ -1,14 +1,13 @@
 import mongoose from 'mongoose'
 
 const LeaderBoardSchema = mongoose.Schema({
-    name: {
+    gameID: {
         type: String, 
         default: ''
     },
-    user: {
+    userID: {
         type: String, 
-        default: '',
-        unique: true
+        default: ''
     },
     totalTime: {
         type: Number,

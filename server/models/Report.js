@@ -1,13 +1,19 @@
 import mongoose from 'mongoose'
 
-const HuntReportSchema = mongoose.Schema({
+const ReportSchema = mongoose.Schema({
     name: {
         type: String, 
+        default: '',
+        unique: false
+    },
+    category: {
+        type: String,
         default: ''
     },
     user: {
         type: String, 
-        default: ''
+        default: '',
+        unique: false
     },
     totalTime: {
         type: Number,
@@ -27,5 +33,5 @@ const HuntReportSchema = mongoose.Schema({
     }
 }, {timestamps : true})
 
-const HuntReport = mongoose.model('HuntReport', HuntReportSchema)
-export default HuntReport
+const Report = mongoose.model('Report', ReportSchema)
+export default Report

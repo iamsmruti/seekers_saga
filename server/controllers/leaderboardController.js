@@ -4,7 +4,7 @@ export const getAll = async (req, res) => {
     const id = req.params.id
 
     try {
-        const records = await LeaderBoard.find({name: id})
+        const records = await LeaderBoard.find({gameID: id})
 
         res.status(200).json(records)
     } catch(err) {
