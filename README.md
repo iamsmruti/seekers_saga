@@ -1,5 +1,5 @@
 
-![Logo](https://firebasestorage.googleapis.com/v0/b/blogarithm-bdb61.appspot.com/o/logo_detail.png?alt=media&token=9b5e610e-8f90-43b8-aa48-bb7ef1bb10f1)
+![Logo](https://firebasestorage.googleapis.com/v0/b/blogarithm-bdb61.appspot.com/o/logo_detail.png?alt=media&token=9b5e610e-8f90-43b8-aa48-bb7ef1bb10f1 | width=200)
 # Seeker's Saga
 
 This is a Treasure Hunt + Puzzle website, featuring various puzzles and treasure hunts which requires a curious & an attentive mind. The Application is reponsive to various device sizes.
