@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt'
 
 export const allUsers = async (req, res) => {
     try {
-        const users = await User.find()
+        const users = await User.find().sort({createdAt: -1})
         return res.status(200).json(users)
     } catch(err) {
         return res.json({error: err.message})

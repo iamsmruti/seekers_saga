@@ -66,7 +66,7 @@ export const showReportsByCategory = async (req, res) => {
     const id = req.params.id
 
     try {
-        const reports = await Report.find({category: id})
+        const reports = await Report.find({category: id}).sort({createdAt: -1})
         res.status(200).json(reports)
     } catch(err) {
         res.json({error: err})
@@ -75,7 +75,7 @@ export const showReportsByCategory = async (req, res) => {
 
 export const showAllReports = async (req, res) => {
     try {
-        const reports = await Report.find({})
+        const reports = await Report.find({}).sort({createdAt: -1})
         res.status(200).json(reports)
     } catch(err) {
         res.json({error: err})

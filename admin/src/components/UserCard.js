@@ -6,6 +6,8 @@ import { toast } from 'react-toastify'
 import useDidMountEffect from '../hooks/useDidMountEffect'
 
 const UserCard = ({user}) => {
+  console.log(user)
+  
   const [role, setRole] = useState(user.roles)
 
   useDidMountEffect(() => {
