@@ -62,6 +62,13 @@ const LoginSection = ({setModalState}) => {
               Register
           </span>
       </p>
+
+      <p className='text-[12px] mt-1 text-center'>
+          Are you an Admin ?
+          <a href='https://seekers-admin.vercel.app/' target='_blank' className='text-blue-600 ml-2 cursor-pointer'>
+              Go Here instead
+          </a>
+      </p>
     </div>
   )
 }

@@ -22,7 +22,7 @@ const Leaderboard = () => {
             <div className='grid grid-cols-12 bg-deepPurpleShade text-white py-2 pl-2'>
                 <div className='col-span-1'>Rank</div>
                 <div className='col-span-5'>User</div>
-                <div className='col-span-2 md:text-left text-center'>Time</div>
+                <div className='col-span-2 md:text-left text-center'>Time (in sec)</div>
                 <div className='col-span-2 md:text-left text-center'>Attempts</div>
                 <div className='col-span-2 md:text-left text-center'>Score</div>
             </div>
