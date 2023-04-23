@@ -5,6 +5,7 @@ export const createReport = async (req, res) => {
     const user = req.user
 
     try {
+        // Generate a report for every session
         const newReport = new Report({
             name: req.body.name,
             user: user.email,
@@ -18,9 +19,11 @@ export const createReport = async (req, res) => {
         const report = await newReport.save()
         console.log(report)
 
+        // Checks if the user is on leaderboard
         const recordFound = await LeaderBoard.find({userID: user.email, gameID: req.body.name})
         console.log(recordFound)
 
+        // If user not found in leaderboard
         if(recordFound.length === 0){
             console.log("new")
 
@@ -36,8 +39,10 @@ export const createReport = async (req, res) => {
             return res.status(200).json({report: report, leaderboard: newRecord})
         }
         
+        // Checks if user is already on leaderboard
         if (recordFound.length > 0){
             console.log("there already")
+            // Checks if the current score is better than the score on leaderboard
             if(recordFound[0].score < req.body.score){
                 const updatedRecord = await LeaderBoard.findByIdAndUpdate(recordFound[0]._id, {
                     gameID: req.body.name,
@@ -59,7 +64,6 @@ export const createReport = async (req, res) => {
 
 export const showReportsByCategory = async (req, res) => {
     const id = req.params.id
-    console.log(id)
 
     try {
         const reports = await Report.find({category: id})
@@ -80,7 +84,6 @@ export const showAllReports = async (req, res) => {
 
 export const deleteReport = async (req, res) => {
     const id = req.body.id
-    console.log(id)
 
     try {
         await Report.findByIdAndDelete(id)

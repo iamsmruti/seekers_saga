@@ -1,24 +1,27 @@
 import React, { useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
+import axios from 'axios'
+import { API } from '../constants'
+
+// Component Imports
+import UserCard from '../components/UserCard'
 import Layout from '../components/Layout'
 import Heading from '../components/Heading'
-import axios from 'axios'
 
-import { API } from '../constants'
-import UserCard from '../components/UserCard'
 
 const Users = () => {
   const [users, setUsers] = useState([])
 
+  // Fetches all the users
   useEffect(() => {
     axios.get(`${API}/user/all`, {
       headers: {
         token: localStorage.getItem('admin_token')
       }
     }).then((res) => {
-      console.log(res.data)
       setUsers(res.data)
     }).catch((err) => {
-      console.log(err)
+      toast()
     })
   }, [])
 

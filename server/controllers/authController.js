@@ -1,9 +1,11 @@
 import User from '../models/User.js'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
+import dotenv from 'dotenv'
+
+// Middlewares
 import { registerValidation, loginValidation } from '../middlewares/validator.js'
 
-import dotenv from 'dotenv'
 dotenv.config()
 
 export const registerUser = async (req, res) => {
@@ -38,7 +40,7 @@ export const loginUser = async (req, res) => {
     const { error } = loginValidation(req.body)
     if (error) return res.json({error: error.details[0].message})
 
-    // If User with entered Email exists
+    // If User with entered Email, exists
     const user = await User.findOne({ email: req.body.email })
     if (!user) return res.status(400).json({ error: "Incorrect Email" })
 
@@ -46,7 +48,7 @@ export const loginUser = async (req, res) => {
     const validPass = await bcrypt.compare(req.body.password, user.password)
     if (!validPass) return res.status(400).json({ error: "Incorrect Password" })
 
-    // JWT Token
+    // Sign the JWT Token
     const token = jwt.sign({
         id: user._id,
         email: user.email,
@@ -73,7 +75,7 @@ export const loginAdminUser = async (req, res) => {
         return res.status(200).json({error: "You are not an admin"})
     }
 
-    // JWT Token
+    // Sign the JWT Token
     const token = jwt.sign({
         id: user._id,
         email: user.email,
@@ -82,3 +84,4 @@ export const loginAdminUser = async (req, res) => {
 
     return res.status(200).json(token)
 }
+

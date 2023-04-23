@@ -1,17 +1,22 @@
-import React, { useEffect, useState } from 'react'
-
+import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
 import ProtectedRoute from './components/ProtectedRoute'
+
+// Page Imports
 import Login from './pages/Login';
 import Home from './pages/Home';
 import Users from './pages/Users';
 import Profile from './pages/Profile';
-import Puzzles from './pages/Puzzles';
+
 import Hunts from './pages/Hunts';
-import AddPuzzle from './pages/Puzzles/subpages/AddPuzzle';
 import AddHunt from './pages/Hunts/subpages/AddHunt';
-import PuzzlesReport from './pages/Puzzles/subpages/PuzzlesReport';
 import HuntReport from './pages/Hunts/subpages/HuntReport';
+
+import Puzzles from './pages/Puzzles';
+import AddPuzzle from './pages/Puzzles/subpages/AddPuzzle';
+import PuzzlesReport from './pages/Puzzles/subpages/PuzzlesReport';
+
 
 function App() {
   return (

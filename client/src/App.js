@@ -1,13 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Login from './pages/Login';
+
 import ProtectedRoute from './components/ProtectedRoute';
+
+// Page Imports
+import Login from './pages/Login';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Puzzle from './pages/Puzzle';
 import Hunt from './pages/Hunt';
 import PuzzleOne from './pages/Puzzle/Puzzle1';
 import HuntOne from './pages/Hunt/Hunt1';
-import { API } from './constants';
 import Leaderboard from './pages/Leaderboard';
 
 function App() {

@@ -1,9 +1,11 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import Layout from '../../components/Layout'
 import Heading from '../../components/Heading'
 import RiddleCard from '../../components/RiddleCard'
 import AddButton from '../../components/AddButton'
-import { useNavigate } from 'react-router-dom'
+
 
 const Hunts = () => {
   const navigate = useNavigate()

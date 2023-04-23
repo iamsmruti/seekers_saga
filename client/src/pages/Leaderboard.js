@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import Layout from '../components/Layout'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
+
+import Layout from '../components/Layout'
 import { API } from '../constants'
 
 const Leaderboard = () => {
     const { id } = useParams()
-
     const [records, setRecords] = useState()
 
+    // Fetches the leaderboard
     useEffect(() => {
         axios.get(`${API}/leaderboard/${id}`).then((res) => {
             setRecords(res.data)

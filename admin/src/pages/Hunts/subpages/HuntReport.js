@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import Layout from '../../../components/Layout'
+import axios from 'axios'
 
 import { API } from '../../../constants'
-import axios from 'axios'
-import ReportCard from '../../../components/ReportCard'
 
+import Layout from '../../../components/Layout'
+import ReportCard from '../../../components/ReportCard'
 import Heading from '../../../components/Heading'
 
 const HuntReport = () => {

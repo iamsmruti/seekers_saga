@@ -5,9 +5,9 @@ import { createReport, showAllReports, deleteReport, showReportsByCategory } fro
 import { verify } from '../middlewares/verify.js'
 
 router.post('/create', verify , createReport )
-router.get('/all', verify, showAllReports)
+router.get('/all', showAllReports)
 router.get('/category/:id', showReportsByCategory)
-router.post('/delete', verify, deleteReport)
+router.post('/delete', deleteReport)
 
 
 export default router

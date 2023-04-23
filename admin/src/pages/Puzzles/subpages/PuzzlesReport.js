@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import Layout from '../../../components/Layout'
-
-import { API } from '../../../constants'
 import axios from 'axios'
-import ReportCard from '../../../components/ReportCard'
+import { API } from '../../../constants'
 
+import ReportCard from '../../../components/ReportCard'
+import Layout from '../../../components/Layout'
 import Heading from '../../../components/Heading'
 
 const PuzzlesReport = () => {
     const [reports, setReports] = useState()
     const [trigger, setTrigger] = useState(0)
 
+    // Fetches all the reports where category equals puzzle
     useEffect(() => {
         axios.get(`${API}/report/category/puzzle`, {
             headers: {

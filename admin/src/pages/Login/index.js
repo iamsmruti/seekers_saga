@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import LoginSection from './LoginSection/LoginSection'
 
+// Assets
 import logoDetailed from '../../assets/images/logo_detail.png'
 
 const Login = () => {

@@ -1,10 +1,13 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import Layout from '../../components/Layout'
 import Heading from '../../components/Heading'
 import RiddleCard from '../../components/RiddleCard'
-import puzzle1 from '../../assets/images/puzzle_1/puzzle1.jpg'
 import AddButton from '../../components/AddButton'
-import { useNavigate } from 'react-router-dom'
+
+// Assets
+import puzzle1 from '../../assets/images/puzzle_1/puzzle1.jpg'
 
 const Puzzles = () => {
   const navigate = useNavigate()

@@ -3,7 +3,6 @@ import Layout from '../../components/Layout'
 import RiddleCard from '../../components/RiddleCard'
 
 import puzzle1 from '../../assets/images/puzzle_1/puzzle1.jpg'
-import { Link } from 'react-router-dom'
 
 const Puzzle = () => {
   return (

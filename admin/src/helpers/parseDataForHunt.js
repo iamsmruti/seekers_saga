@@ -6,8 +6,6 @@ export const getDataForHuntBarChart = (data) => {
         {name: 'riddle 4',time: 0, attempts: 0}, 
         {name: 'riddle 5',time: 0, attempts: 0}]
 
-    console.log(data)
-
     const finalData = data.filter((item) => { return item.category === 'hunt'})
 
     finalData.map((item, index) => {
@@ -27,6 +25,5 @@ export const getDataForHuntBarChart = (data) => {
         }
     })
 
-    console.log(result)
     return result
 }

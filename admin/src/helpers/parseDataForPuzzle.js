@@ -10,8 +10,6 @@ export const getDataForPuzzleBarChart = (data) => {
         {name: 'step 8' ,time: 0, attempts: 0},
         {name: 'step 9' ,time: 0, attempts: 0}]
 
-    console.log(data)
-
     const finalData = data.filter((item) => { return item.category === 'puzzle'})
 
     finalData.map((item, index) => {
@@ -31,6 +29,5 @@ export const getDataForPuzzleBarChart = (data) => {
         }
     })
 
-    console.log(result)
     return result
 }

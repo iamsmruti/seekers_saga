@@ -12,10 +12,6 @@
   font-family: 'Inter', sans-serif;
 }
 
-body {
-  /* cursor: url('./assets/icons/icons8-search.svg'), auto; */
-}
-
 .login {
   width: 100vw;
   height: 100vh;

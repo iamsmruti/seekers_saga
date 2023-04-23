@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import axios from 'axios'
 import { API } from '../../../constants';
+
 import { getDataForPuzzleBarChart } from '../../../helpers/parseDataForPuzzle';
 
 const SimpleBarChartComponent = () => {

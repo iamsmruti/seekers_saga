@@ -11,8 +11,6 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <>
     <App />
-    <ToastContainer 
-        position='bottom-right'
-    />
+    <ToastContainer position='bottom-right' />
     </>
 );
