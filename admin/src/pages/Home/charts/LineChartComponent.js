@@ -38,7 +38,7 @@ const LineChartComponent = () => {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="count" stroke="#8884d8" activeDot={{ r: 8 }} />
+          <Line type="monotone" dataKey="newUser" stroke="#301854" activeDot={{ r: 8 }} />
         </LineChart>
       </ResponsiveContainer>
     );

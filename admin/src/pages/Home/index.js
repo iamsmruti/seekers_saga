@@ -5,6 +5,8 @@ import LineChartComponent from './charts/LineChartComponent'
 import BarChartComponent from './charts/BarChartComponent'
 
 import SubHeading from '../../components/SubHeading'
+import SimpleBarChartComponent from './charts/SimpleBarChartComponent'
+import SimpleBarChartComponent2 from './charts/SimpleBarChartComponent2'
 
 const Home = () => {
   return (
@@ -27,8 +29,20 @@ const Home = () => {
         </div>
       </div>
 
-      <div className='min-h-[500px]'>
-        <SubHeading title={"Recent Activity"} subtitle={"Activity can be anything from register to playing a game."}/>
+      <div className='grid grid-cols-1 md:grid-cols-2 mt-10'>
+        <div>
+          <SubHeading title={"Puzzles"} subtitle={"Bar graph showing Avg Time ( in sec ) to complete each step"}/>
+          <div className='md:h-[600px] h-[400px] md:pr-10 md:py-10 py-4 pr-3'>
+            <SimpleBarChartComponent />
+          </div>
+        </div>
+
+        <div>
+          <SubHeading title={"Hunts"} subtitle={"Bar graph showing Avg Time ( in sec ) to complete each step"}/>
+          <div className='md:h-[600px] h-[400px] md:pr-10 md:py-10 py-4 pr-3'>
+            <SimpleBarChartComponent2 />
+          </div>
+        </div>
       </div>
     </Layout>
   )

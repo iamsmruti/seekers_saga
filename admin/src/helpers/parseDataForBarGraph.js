@@ -1,7 +1,7 @@
 export const getBarChartData = (data) => {
     const result = [{}]
     const results2 = []
-    console.log(data)
+
     data.map((item) => {
         if(result[item.createdAt.substring(0, 10)]){
             if(item.category === 'hunt')

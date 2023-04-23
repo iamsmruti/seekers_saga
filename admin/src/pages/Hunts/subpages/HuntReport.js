@@ -17,11 +17,12 @@ const HuntReport = () => {
                 token: localStorage.getItem('admin_token')
             }
         }).then((res) => {
-            console.log(res.data)
             setReports(res.data)
         }).catch((err) => {
             console.log(err)
         })
+
+        console.log(trigger)
     }, [trigger])
 
     return (

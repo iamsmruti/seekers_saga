@@ -83,7 +83,7 @@ export const deleteReport = async (req, res) => {
     console.log(id)
 
     try {
-        await HuntReport.findByIdAndDelete(id)
+        await Report.findByIdAndDelete(id)
         return res.status(200).json("Report Stats deleted")
     } catch(err) {
         res.json({error: err.message})

@@ -1,13 +1,14 @@
 export const getLineChartData = (response) => {
     const result = [{}]
     const results2 = []
+    
     response.map((item) => {
         if(result[item.createdAt.substring(0, 10)]){
-            result[item.createdAt.substring(0, 10)].count++
+            result[item.createdAt.substring(0, 10)].newUser++
         } else {
             result[item.createdAt.substring(0, 10)] = {
                 name: item.createdAt.substring(0, 10),
-                count: 1
+                newUser: 1
             }
         }
     })
