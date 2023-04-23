@@ -2,23 +2,23 @@
 ![Logo](https://firebasestorage.googleapis.com/v0/b/blogarithm-bdb61.appspot.com/o/logo_detail.png?alt=media&token=9b5e610e-8f90-43b8-aa48-bb7ef1bb10f1)
 # Seeker's Saga
 
-This Application aims at evaluating people's soft skills through various puzzles and treasure hunts. The time taken to solve problems, the accuracy and the level of problem are collected from the user and processed to derive at valuable insights. The Application is reponsive to various device sizes.
+This is a Treasure Hunt + Puzzle website, featuring various puzzles and treasure hunts which requires a curious & an attentive mind. The Application is reponsive to various device sizes.
 
 ![Puzzle](https://firebasestorage.googleapis.com/v0/b/blogarithm-bdb61.appspot.com/o/smartmockups_lgnyq15x.jpg?alt=media&token=d4ab65d5-3b88-40ec-9273-890844b08479)
 
-These insights are presented to the user and the admin through graphts and charts.
+This has an admin dashboard where we can see all the insights from the users
 
-There are two sections :
+The Website has Puzzles and Hunts
 
-**A. Puzzle section :** This section contains Puzzles that measure the speed and attention to details
+**A. Puzzle section :** This section has various sets of images where we have to find the one from many similar images, which tests one's attention.
 
 ![Puzzle](https://firebasestorage.googleapis.com/v0/b/blogarithm-bdb61.appspot.com/o/screencapture-seekers-saga-vercel-app-puzzles-1-2023-04-19-22_54_35.png?alt=media&token=37ffe564-2fc3-4505-9ded-837c5681995d)
 
-**B. Hunt section :** This section contains Treasure Hunts, that helps in measuring the creativity in solving the riddles and the intelligence needed to solve the same.
+**B. Hunt section :** This section has various riddles with specific themes to each hunt. For example, a Geographic Hunt will have riddles related to continents and countries.
 
 ![Hunt](https://firebasestorage.googleapis.com/v0/b/blogarithm-bdb61.appspot.com/o/screencapture-seekers-saga-vercel-app-hunts-1-2023-04-19-22_54_58.png?alt=media&token=b387693a-0c5b-41dc-90c4-f1cb185e43c2)
 
-Overall the user will have to attempt both the puzzle and a hunt, in order to derive at a conclusion.
+Overall, this app is a fun experience. This also supports a leaderboard where you can see how ur friends are doing along with you.
 
 
 ## Solving the puzzle 
@@ -34,20 +34,22 @@ The Hunts are like the usual treasure hunts, but done virtually here.
 
 - The riddle are very interactive, users have to find the locations and places by locating it on the map ( not enterring it manually ). 
 
-- This hunts help in evaluating the intellectual and creative part of the user.
+- This hunts help in incorporating ideas and values related to geographic maps.
 
-Here, we can have two attempts for each puzzle and at the end of the 9th we will evaluate the user based on time taken and correctness of answer.
+Here, we can have two attempts for each puzzle and at the end, we can know the time taken and the number of attempts for each step.
 
 ### B. Puzzles
-The puzzles set is simple, there are 9 of them in total
+The puzzle set is simple, there are 9 of them in total
 
 - In each puzzle, the user have to find the picture which is different from the rest.
 
-- For each Puzzle, 15 seconds will be the time limit.
-- Here the user after finding the right picture, he has to enter the row number and column number as its answer. 
-- This puzzle not only requires speed and attention to detail. But also the presence of mind to enter the corrent row and column under timed situation.
+- For each Puzzle, 25 seconds will be the time limit.
 
-Here, we can have two attempts for each puzzle and at the end of the 9th we will evaluate the user based on time taken and correctness of answer.
+- Here the user after finding the right picture, he has to click the odd picture.
+
+- This is a fun way of checking ones attention to detail skills
+
+Here, The user can attempt multiple times. The idea is to get the right answer, the wrong answer will reduce points. 
 
 So, that was it about the introduction of the Project.
 
@@ -80,11 +82,11 @@ This is an API connected to the database.
 
 All the parts of the project are deployed on the web, here are the deployed links
 
-Client Website : 
+Client Website : [seekers-saga.vercel.app](https://seekers-saga.vercel.app/)
 
-Admin Website : 
+Admin Website : [seekers-admin.vercel.app](https://seekers-admin.vercel.app/)
 
-Server :
+Server : [seekerssaga-production.up.railway.app](https://seekerssaga-production.up.railway.app/)
 
 **Still, if you want to make a new version of this project for yourself. Follow these steps:**
 
@@ -155,15 +157,23 @@ Following are the features that has been planned, some of them are implemented (
 - [x] &nbsp;&nbsp; Server Deployment
 - [x] &nbsp;&nbsp; Puzzles 
 - [x] &nbsp;&nbsp; Treasure Hunt 
+- [x] &nbsp;&nbsp; Leaderboard
 - [x] &nbsp;&nbsp; Interactive Maps
+- [x] &nbsp;&nbsp; Save States of the Game, the user can refresh the page
 - [x] &nbsp;&nbsp; Creative Story line for the hunt
-- [ ] &nbsp;&nbsp; Measure Soft Skills of the user
-- [ ] &nbsp;&nbsp; Display the stats to the user
-- [ ] &nbsp;&nbsp; Display user information & stats in the admin site
-- [ ] &nbsp;&nbsp; Store user's data in the database 
-- [ ] &nbsp;&nbsp; User Data Analysis
-- [ ] &nbsp;&nbsp; Data Analysis ( Charts & Graphs )
-- [ ] &nbsp;&nbsp; Leaderboard
+- [x] &nbsp;&nbsp; Dashboard for Admin
+- [x] &nbsp;&nbsp; Measure Soft Skills of the user
+- [x] &nbsp;&nbsp; Display the stats to the user
+- [x] &nbsp;&nbsp; Display user information & stats in the admin site
+- [x] &nbsp;&nbsp; Store user's data in the database 
+- [x] &nbsp;&nbsp; User Data Analysis
+- [x] &nbsp;&nbsp; Data Analysis ( Charts & Graphs )
+- [ ] &nbsp;&nbsp; Create Puzzles from Admin site
+- [ ] &nbsp;&nbsp; Create Hunts from Admin site
+- [ ] &nbsp;&nbsp; Delete PuzzlesReports via Admin Site
+- [ ] &nbsp;&nbsp; Delete HuntsReports via Admin Site
+- [ ] &nbsp;&nbsp; Work on structuring the client, to make puzzles and hunts dynamic templates
+- [ ] &nbsp;&nbsp; Write Tests
 
 
 
