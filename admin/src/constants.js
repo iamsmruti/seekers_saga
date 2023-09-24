@@ -1,2 +1,2 @@
-export const API = 'https://seekerssaga-production.up.railway.app' 
+export const API = 'https://seekers-saga.onrender.com' 
 // export const API = 'http://localhost:4343' 
